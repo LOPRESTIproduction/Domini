@@ -1,39 +1,89 @@
-xt-white">Coperto (82%)</span>
-                    </div>
-                    <div class="w-full bg-slate-800/50 h-2 rounded-full overflow-hidden">
-                        <div class="bg-blue-500 h-full rounded-full" style="width: 82%"></div>
-                    </div>
-                </div>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bityours.com</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background: #020617; color: #ffffff; font-family: sans-serif; }
+        .glass { background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; }
+        .gold-btn { background: linear-gradient(to right, #fbbf24, #d97706); }
+        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 100; align-items: center; justify-content: center; padding: 20px; }
+        .modal.active { display: flex; }
+    </style>
+</head>
+<body class="p-4 flex flex-col items-center">
+    <div class="max-w-md w-full space-y-5">
+        
+        <!-- Bottone Acquisto -->
+        <button onclick="document.getElementById('m').classList.add('active')" class="gold-btn w-full p-5 rounded-2xl font-black uppercase italic shadow-lg">
+            Acquista Bityours.com
+        </button>
 
-                <!-- Dividendi -->
+        <!-- Intestazione -->
+        <div class="text-center">
+            <h1 class="text-4xl font-black italic uppercase">BITYOURS<span class="text-green-500">.COM</span></h1>
+            <p class="text-green-500 text-[10px] font-bold tracking-widest uppercase">Green&Gain Portfolio</p>
+        </div>
+
+        <!-- Descrizione Progetto -->
+        <div class="glass p-5 border-l-4 border-green-500">
+            <p class="text-sm italic text-slate-200">
+                Strategia <span class="font-bold">Ultimate Bond/world</span>: unione tra sicurezza obbligazionaria e crescita globale per la sovranità finanziaria.
+            </p>
+        </div>
+
+        <!-- Capitale -->
+        <div class="glass p-6 text-center">
+            <span class="text-[10px] text-slate-400 uppercase font-bold">Capitale Investito</span>
+            <div class="text-4xl font-black">€ 426,50</div>
+            <div class="text-[10px] text-slate-500 mt-2">Credem €200 • Trade €226,50</div>
+        </div>
+
+        <!-- Obiettivo 55/30/15 -->
+        <div class="glass p-5 space-y-4">
+            <div class="flex justify-between text-xs font-black uppercase italic border-b border-white/10 pb-2">
+                <span>Obiettivo Portfolio</span>
+                <span class="text-green-500">55/30/15</span>
+            </div>
+            <div class="space-y-3">
                 <div>
-                    <div class="flex justify-between text-[11px] mb-1 font-bold uppercase">
-                        <span class="text-yellow-500/60">Dividend (Obiettivo 15%)</span>
-                        <span class="text-slate-500 italic">Fase 3 Attesa</span>
-                    </div>
-                    <div class="w-full bg-slate-800/50 h-2 rounded-full opacity-20"></div>
+                    <div class="flex justify-between text-[10px] font-bold mb-1"><span>CRESCITA (55%)</span><span>18%</span></div>
+                    <div class="w-full bg-slate-800 h-2 rounded-full"><div class="bg-green-500 h-full rounded-full" style="width: 18%"></div></div>
                 </div>
+                <div>
+                    <div class="flex justify-between text-[10px] font-bold mb-1"><span>PROTEZIONE (30%)</span><span>82%</span></div>
+                    <div class="w-full bg-slate-800 h-2 rounded-full"><div class="bg-blue-500 h-full rounded-full" style="width: 82%"></div></div>
+                </div>
+                <div class="text-[10px] font-bold text-slate-500">DIVIDENDI (15%) - FASE 3 ATTESA</div>
             </div>
         </div>
 
-        <!-- FOOTER - LEGGIBILE E CHIARO -->
-        <div class="mt-12 p-8 bg-white/5 rounded-[32px] border border-white/10 text-center shadow-2xl">
-            <p class="footer-highlight uppercase mb-2">
+        <!-- FOOTER BIANCO CHIARO -->
+        <div class="py-10 text-center border-t border-white/10">
+            <p class="text-white text-xl font-black tracking-widest uppercase mb-1">
                 © 2026 SONNY LO PRESTI
             </p>
-            <div class="h-px w-20 bg-green-500 mx-auto mb-4"></div>
-            <p class="text-green-500 text-[11px] font-black uppercase tracking-[0.2em]">
-                Amministratore Unico • Green&Gain Project
+            <p class="text-green-500 text-[10px] font-bold uppercase tracking-widest">
+                Amministratore Unico
             </p>
         </div>
     </div>
 
-    <!-- MODALE PAGAMENTI -->
-    <div id="paymentModal" class="modal" onclick="closeModal()">
-        <div class="glass p-8 w-full max-w-sm space-y-6 bg-slate-900 border-yellow-500/30 shadow-2xl" onclick="event.stopPropagation()">
-            <div class="text-center">
-                <h2 class="text-xl font-black uppercase text-white italic tracking-tighter">Acquista Bityours.com</h2>
-                <p class="text-[10px] text-slate-400 mt-2 font-bold uppercase tracking-widest">Scegli il metodo:</p>
+    <!-- Modale Pagamenti -->
+    <div id="m" class="modal" onclick="this.classList.remove('active')">
+        <div class="glass p-8 w-full max-w-xs space-y-4 text-center" onclick="event.stopPropagation()">
+            <h2 class="font-black uppercase italic">Pagamenti</h2>
+            <a href="https://revolut.me/lopresti7" class="block p-4 bg-white text-black font-bold rounded-xl">Revolut: @lopresti7</a>
+            <a href="https://www.paypal.me/NicoCasacci" class="block p-4 bg-blue-600 text-white font-bold rounded-xl">PayPal: @NicoCasacci</a>
+            <a href="mailto:nicoaabbcc@gmail.com" class="block p-4 bg-slate-700 text-white font-bold rounded-xl">Email: Invia</a>
+            <button onclick="document.getElementById('m').classList.remove('active')" class="text-xs text-slate-500 uppercase mt-4">Chiudi</button>
+        </div>
+    </div>
+</body>
+</html>
+
             </div>
 
             <div class="space-y-3">
