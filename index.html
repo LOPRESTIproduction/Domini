@@ -3,764 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bityours.com</title>
+    <title>Bityours.com | Green&Gain</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background: #020617; color: #ffffff; font-family: sans-serif; }
-        .glass { background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; }
-        .gold-btn { background: linear-gradient(to right, #fbbf24, #d97706); }
-        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 100; align-items: center; justify-content: center; padding: 20px; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { background-color: #020617; color: #ffffff; font-family: 'Inter', sans-serif; margin: 0; }
+        .glass-card { 
+            background: rgba(30, 41, 59, 0.7); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            border-radius: 24px; 
+        }
+        .gold-gradient { background: linear-gradient(90deg, #fbbf24, #d97706); }
+        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 100; align-items: center; justify-content: center; padding: 20px; }
         .modal.active { display: flex; }
+        /* Bianco puro assoluto per il nome di Sonny */
+        .white-bold-text { color: #FFFFFF !important; font-weight: 900 !important; text-transform: uppercase; }
     </style>
 </head>
 <body class="p-4 flex flex-col items-center">
-    <div class="max-w-md w-full space-y-5">
+    <div class="max-w-md w-full space-y-6 pb-12">
         
         <!-- Bottone Acquisto -->
-        <button onclick="document.getElementById('m').classList.add('active')" class="gold-btn w-full p-5 rounded-2xl font-black uppercase italic shadow-lg">
+        <button onclick="document.getElementById('pay-modal').classList.add('active')" class="gold-gradient w-full py-5 rounded-2xl text-white font-black uppercase italic shadow-xl transform active:scale-95 transition-transform">
             Acquista Bityours.com
         </button>
 
-        <!-- Intestazione -->
-        <div class="text-center">
-            <h1 class="text-4xl font-black italic uppercase">BITYOURS<span class="text-green-500">.COM</span></h1>
-            <p class="text-green-500 text-[10px] font-bold tracking-widest uppercase">Green&Gain Portfolio</p>
+        <!-- Logo e Titolo -->
+        <div class="text-center pt-2">
+            <h1 class="text-5xl font-black italic tracking-tighter uppercase leading-none">BITYOURS<span class="text-green-500">.COM</span></h1>
+            <p class="text-green-500 text-[10px] font-bold tracking-[0.4em] uppercase mt-1">Green&Gain Portfolio</p>
         </div>
 
         <!-- Descrizione Progetto -->
-        <div class="glass p-5 border-l-4 border-green-500">
-            <p class="text-sm italic text-slate-200">
-                Strategia <span class="font-bold">Ultimate Bond/world</span>: unione tra sicurezza obbligazionaria e crescita globale per la sovranità finanziaria.
-            </p>
-        </div>
-
-        <!-- Capitale -->
-        <div class="glass p-6 text-center">
-            <span class="text-[10px] text-slate-400 uppercase font-bold">Capitale Investito</span>
-            <div class="text-4xl font-black">€ 426,50</div>
-            <div class="text-[10px] text-slate-500 mt-2">Credem €200 • Trade €226,50</div>
-        </div>
-
-        <!-- Obiettivo 55/30/15 -->
-        <div class="glass p-5 space-y-4">
-            <div class="flex justify-between text-xs font-black uppercase italic border-b border-white/10 pb-2">
-                <span>Obiettivo Portfolio</span>
-                <span class="text-green-500">55/30/15</span>
-            </div>
-            <div class="space-y-3">
-                <div>
-                    <div class="flex justify-between text-[10px] font-bold mb-1"><span>CRESCITA (55%)</span><span>18%</span></div>
-                    <div class="w-full bg-slate-800 h-2 rounded-full"><div class="bg-green-500 h-full rounded-full" style="width: 18%"></div></div>
-                </div>
-                <div>
-                    <div class="flex justify-between text-[10px] font-bold mb-1"><span>PROTEZIONE (30%)</span><span>82%</span></div>
-                    <div class="w-full bg-slate-800 h-2 rounded-full"><div class="bg-blue-500 h-full rounded-full" style="width: 82%"></div></div>
-                </div>
-                <div class="text-[10px] font-bold text-slate-500">DIVIDENDI (15%) - FASE 3 ATTESA</div>
-            </div>
-        </div>
-
-        <!-- FOOTER BIANCO CHIARO -->
-        <div class="py-10 text-center border-t border-white/10">
-            <p class="text-white text-xl font-black tracking-widest uppercase mb-1">
-                © 2026 SONNY LO PRESTI
-            </p>
-            <p class="text-green-500 text-[10px] font-bold uppercase tracking-widest">
-                Amministratore Unico
-            </p>
-        </div>
-    </div>
-
-    <!-- Modale Pagamenti -->
-    <div id="m" class="modal" onclick="this.classList.remove('active')">
-        <div class="glass p-8 w-full max-w-xs space-y-4 text-center" onclick="event.stopPropagation()">
-            <h2 class="font-black uppercase italic">Pagamenti</h2>
-            <a href="https://revolut.me/lopresti7" class="block p-4 bg-white text-black font-bold rounded-xl">Revolut: @lopresti7</a>
-            <a href="https://www.paypal.me/NicoCasacci" class="block p-4 bg-blue-600 text-white font-bold rounded-xl">PayPal: @NicoCasacci</a>
-            <a href="mailto:nicoaabbcc@gmail.com" class="block p-4 bg-slate-700 text-white font-bold rounded-xl">Email: Invia</a>
-            <button onclick="document.getElementById('m').classList.remove('active')" class="text-xs text-slate-500 uppercase mt-4">Chiudi</button>
-        </div>
-    </div>
-</body>
-</html>
-
-            </div>
-
-            <div class="space-y-3">
-                <a href="https://revolut.me/lopresti7" target="_blank" class="flex items-center justify-between p-4 rounded-2xl bg-white text-black font-extrabold shadow-lg">
-                   <div class="flex items-center gap-3"><span class="text-xl">💎</span> Revolut</div>
-                   <span class="text-[10px] font-bold uppercase">@lopresti7</span>
-                </a>
-
-                <a href="https://www.paypal.me/NicoCasacci" target="_blank" class="flex items-center justify-between p-4 rounded-2xl bg-[#0070ba] text-white font-extrabold shadow-lg">
-                   <div class="flex items-center gap-3"><span class="text-xl">🅿️</span> PayPal</div>
-                   <span class="text-[10px] font-bold uppercase">@NicoCasacci</span>
-                </a>
-
-                <a href="mailto:nicoaabbcc@gmail.com" class="flex items-center justify-between p-4 rounded-2xl bg-slate-800 text-white font-extrabold shadow-lg">
-                   <div class="flex items-center gap-3"><span class="text-xl">✉️</span> Email Direct</div>
-                   <span class="text-[10px] font-bold uppercase text-white">Invia</span>
-                </a>
-            </div>
-
-            <button onclick="closeModal()" class="w-full text-slate-500 text-[10px] font-black uppercase tracking-[0.3em] pt-4">Torna alla Dashboard</button>
-        </div>
-    </div>
-
-    <script>
-        function openModal() { document.getElementById('paymentModal').classList.add('active'); }
-        function closeModal() { document.getElementById('paymentModal').classList.remove('active'); }
-    </script>
-</body>
-</html>
-
-                <a href="https://revolut.me/lopresti7" target="_blank" class="flex items-center justify-between p-4 rounded-2xl bg-white text-black font-extrabold shadow-lg">
-                   <div class="flex items-center gap-3"><span class="text-xl">💎</span> Revolut</div>
-                   <span class="text-[10px] font-bold uppercase">@lopresti7</span>
-                </a>
-
-                <a href="https://www.paypal.me/NicoCasacci" target="_blank" class="flex items-center justify-between p-4 rounded-2xl bg-[#0070ba] text-white font-extrabold shadow-lg">
-                   <div class="flex items-center gap-3"><span class="text-xl">🅿️</span> PayPal</div>
-                   <span class="text-[10px] font-bold uppercase">@NicoCasacci</span>
-                </a>
-
-                <a href="mailto:nicoaabbcc@gmail.com" class="flex items-center justify-between p-4 rounded-2xl bg-slate-800 text-white font-extrabold shadow-lg">
-                   <div class="flex items-center gap-3"><span class="text-xl">✉️</span> Email</div>
-                   <span class="text-[10px] font-bold uppercase text-white">Send</span>
-                </a>
-            </div>
-
-            <button onclick="closeModal()" class="w-full text-slate-500 text-[10px] font-black uppercase tracking-[0.3em] pt-4">Chiudi</button>
-        </div>
-    </div>
-
-    <script>
-        function openModal() { document.getElementById('paymentModal').classList.add('active'); }
-        function closeModal() { document.getElementById('paymentModal').classList.remove('active'); }
-    </script>
-</body>
-</html>
-
-        </button>
-
-        <!-- Titolo -->
-        <div class="px-2 space-y-2">
-            <h1 class="text-4xl font-black italic tracking-tighter uppercase text-white leading-none">BITYOURS<span class="text-green-500">.COM</span></h1>
-            <p class="text-[13px] text-slate-300 leading-relaxed font-medium italic">
-                Il punto di incontro tra <span class="text-green-400 font-bold">finanza digitale</span> e strategie di investimento a lungo termine. Sviluppato per tracciare il piano <span class="text-white font-bold underline decoration-green-500 uppercase">Ultimate Bond/world</span>.
-            </p>
-        </div>
-
-        <!-- Capitale -->
-        <div class="glass p-8 text-center border-b-4 border-b-green-500 shadow-2xl flex flex-col items-center">
-            <h3 class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.3em] mb-1">Capitale Investito</h3>
-            <p class="text-5xl font-black text-white leading-tight">€ 426,50</p>
-            <div class="flex justify-center gap-4 mt-3 text-[10px] font-bold text-slate-300 uppercase tracking-tighter">
-                <span>Credem: € 200</span>
-                <span>•</span>
-                <span>Trade Republic: € 226,50</span>
-            </div>
-        </div>
-
-        <!-- Asset Allocation -->
-        <div class="glass p-6 space-y-4">
-            <div class="flex justify-between items-end border-b border-white/5 pb-2">
-                <h2 class="text-xs font-bold text-slate-100 uppercase tracking-widest italic">Target Green&Gain (55/30/15)</h2>
-            </div>
-            
-            <div class="space-y-4">
-                <div>
-                    <div class="flex justify-between text-[11px] mb-1 font-bold uppercase text-green-400">
-                        <span>Crescita</span>
-                        <span>18%</span>
-                    </div>
-                    <div class="w-full bg-slate-800/50 h-2.5 rounded-full p-0.5">
-                        <div class="bg-green-500 h-full rounded-full" style="width: 18%"></div>
-                    </div>
-                </div>
-                <div>
-                    <div class="flex justify-between text-[11px] mb-1 font-bold uppercase text-blue-400">
-                        <span>Protezione (XEON)</span>
-                        <span>82%</span>
-                    </div>
-                    <div class="w-full bg-slate-800/50 h-2.5 rounded-full p-0.5">
-                        <div class="bg-blue-500 h-full rounded-full" style="width: 82%"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- FOOTER CHIARO E LEGGIBILE -->
-        <div class="mt-12 mb-8 p-6 bg-white/5 rounded-[32px] border border-white/10 text-center">
-            <p class="footer-text text-lg font-black uppercase tracking-[0.2em] mb-1">
-                © 2026 SONNY LO PRESTI
-            </p>
-            <p class="text-green-500 text-[10px] font-extrabold uppercase tracking-widest">
-                Amministratore Unico • Green&Gain Project
-            </p>
-        </div>
-    </div>
-
-    <!-- MODALE PAGAMENTI -->
-    <div id="paymentModal" class="modal" onclick="closeModal()">
-        <div class="glass p-8 w-full max-w-sm space-y-6 bg-slate-900 border-yellow-500/30 shadow-2xl" onclick="event.stopPropagation()">
-            <div class="text-center">
-                <h2 class="text-xl font-black uppercase text-white italic tracking-tighter">Acquista Bityours.com</h2>
-                <p class="text-[10px] text-slate-400 mt-2 font-bold uppercase tracking-widest">Contatti e Pagamenti:</p>
-            </div>
-            <div class="space-y-3">
-                <a href="https://revolut.me/lopresti7" target="_blank" class="flex items-center justify-between p-4 rounded-2xl bg-white text-black font-extrabold shadow-lg">
-                   <div class="flex items-center gap-3"><span class="text-xl">💎</span> Revolut</div>
-                   <span class="text-[10px] font-bold">@lopresti7</span>
-                </a>
-                <a href="https://www.paypal.me/NicoCasacci" target="_blank" class="flex items-center justify-between p-4 rounded-2xl bg-[#0070ba] text-white font-extrabold shadow-lg">
-                   <div class="flex items-center gap-3"><span class="text-xl">🅿️</span> PayPal</div>
-                   <span class="text-[10px] font-bold">@NicoCasacci</span>
-                </a>
-                <a href="mailto:nicoaabbcc@gmail.com" class="flex items-center justify-between p-4 rounded-2xl bg-slate-800 text-white font-extrabold shadow-lg">
-                   <div class="flex items-center gap-3"><span class="text-xl">✉️</span> Email Direct</div>
-                   <span class="text-[10px] font-bold">SEND</span>
-                </a>
-            </div>
-            <button onclick="closeModal()" class="w-full text-slate-500 text-[10px] font-black uppercase tracking-[0.3em] pt-4">Chiudi</button>
-        </div>
-    </div>
-
-    <script>
-        function openModal() { document.getElementById('paymentModal').classList.add('active'); }
-        function closeModal() { document.getElementById('paymentModal').classList.remove('active'); }
-    </script>
-</body>
-</html>
-
-        <!-- Titolo -->
-        <div class="px-2 space-y-1 text-center">
-            <h1 class="text-3xl font-black italic tracking-tighter uppercase text-white leading-none">BITYOURS<span class="text-green-500">.COM</span></h1>
-            <p class="text-slate-400 text-[11px] font-bold uppercase tracking-[0.2em] opacity-60">Ultimate Bond/world Journal</p>
-        </div>
-
-        <!-- Capitale Totale -->
-        <div class="glass p-8 text-center border-b-4 border-b-green-500 shadow-2xl flex flex-col items-center">
-            <h3 class="text-slate-500 text-[10px] font-bold uppercase tracking-[0.3em] mb-1">Capitale Investito Totale</h3>
-            <p class="text-5xl font-black text-white leading-tight italic">€ 426,50</p>
-            <div class="flex justify-center gap-4 mt-3 text-[10px] font-bold text-slate-400 uppercase tracking-tighter">
-                <span>Credem: € 200</span>
-                <span>•</span>
-                <span>Trade Rep: € 226,50</span>
-            </div>
-        </div>
-
-        <!-- Stato Asset -->
-        <div class="glass p-6 space-y-5">
-            <div class="flex justify-between items-end border-b border-white/5 pb-2">
-                <h2 class="text-xs font-bold text-slate-300 uppercase tracking-widest italic font-black text-center w-full">Allocazione Portafoglio</h2>
-            </div>
-            
-            <div class="space-y-4">
-                <div>
-                    <div class="flex justify-between text-[11px] mb-1 font-bold uppercase text-green-400">
-                        <span>Crescita</span>
-                        <span>18%</span>
-                    </div>
-                    <div class="w-full bg-slate-800/50 h-2.5 rounded-full p-0.5">
-                        <div class="bg-green-500 h-full rounded-full" style="width: 18%"></div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="flex justify-between text-[11px] mb-1 font-bold uppercase text-blue-400">
-                        <span>Protezione (XEON Cash)</span>
-                        <span>82%</span>
-                    </div>
-                    <div class="w-full bg-slate-800/50 h-2.5 rounded-full p-0.5">
-                        <div class="bg-blue-500 h-full rounded-full shadow-[0_0_15px_rgba(59,130,246,0.3)]" style="width: 82%"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- About/Philosophy -->
-        <div class="glass p-6 bg-slate-900/40 text-center">
-            <h4 class="text-[10px] font-black uppercase text-green-500 mb-2 tracking-widest">Filosofia Bityours</h4>
-            <p class="text-[13px] text-slate-400 leading-relaxed font-medium italic">
-                "Bityours rappresenta la sovranità finanziaria individuale: ciò che investi è tuo (Yours), gestito con la precisione del bit (Digitale)."
-            </p>
-        </div>
-
-        <footer class="text-center pb-8 opacity-40">
-            <p class="text-[9px] text-slate-600 font-bold uppercase tracking-[0.4em]">© 2026 Sonny Lo Presti</p>
-        </footer>
-    </div>
-
-    <!-- MODALE PAGAMENTI -->
-    <div id="paymentModal" class="modal" onclick="closeModal()">
-        <div class="glass p-8 w-full max-w-sm space-y-6 bg-slate-900 border-yellow-500/30 shadow-2xl" onclick="event.stopPropagation()">
-            <div class="text-center">
-                <h2 class="text-xl font-black uppercase text-white tracking-tighter italic">Acquista Bityours.com</h2>
-                <p class="text-[10px] text-slate-400 mt-2 font-bold uppercase tracking-widest">Contatti e Pagamenti:</p>
-            </div>
-
-            <div class="space-y-3">
-                <!-- Revolut -->
-                <a href="https://revolut.me/lopresti7" target="_blank" class="flex items-center justify-between p-4 rounded-2xl bg-white text-black font-extrabold shadow-lg transition hover:scale-[1.02]">
-                   <div class="flex items-center gap-3">
-                       <span class="text-xl">💎</span> Revolut
-                   </div>
-                   <span class="text-[10px] bg-black/5 px-2 py-1 rounded">@lopresti7</span>
-                </a>
-
-                <!-- PayPal -->
-                <a href="https://www.paypal.me/NicoCasacci" target="_blank" class="flex items-center justify-between p-4 rounded-2xl bg-[#0070ba] text-white font-extrabold shadow-lg transition hover:scale-[1.02]">
-                   <div class="flex items-center gap-3">
-                       <span class="text-xl">🅿️</span> PayPal
-                   </div>
-                   <span class="text-[10px] bg-white/10 px-2 py-1 rounded text-white">@NicoCasacci</span>
-                </a>
-
-                <!-- Email -->
-                <a href="mailto:nicoaabbcc@gmail.com" class="flex items-center justify-between p-4 rounded-2xl bg-slate-800 text-white font-extrabold shadow-lg transition hover:scale-[1.02]">
-                   <div class="flex items-center gap-3">
-                       <span class="text-xl">✉️</span> Email Direct
-                   </div>
-                   <span class="text-[10px] bg-white/5 px-2 py-1 rounded text-white">SEND</span>
-                </a>
-            </div>
-
-            <button onclick="closeModal()" class="w-full text-slate-500 text-[10px] font-black uppercase tracking-[0.3em] pt-4">Torna alla Dashboard</button>
-        </div>
-    </div>
-
-    <script>
-        function openModal() { document.getElementById('paymentModal').classList.add('active'); }
-        function closeModal() { document.getElementById('paymentModal').classList.remove('active'); }
-    </script>
-</body>
-</html>
-
-        <div class="glass p-6 space-y-5">
-            <div class="flex justify-between items-end border-b border-white/5 pb-2">
-                <h2 class="text-xs font-bold text-slate-300 uppercase tracking-widest italic font-black text-center w-full">Stato Asset Portfolio</h2>
-            </div>
-            
-            <div class="space-y-4 text-center">
-                <div>
-                    <div class="flex justify-between text-[11px] mb-1 font-bold uppercase text-green-400">
-                        <span>Crescita</span>
-                        <span>18%</span>
-                    </div>
-                    <div class="w-full bg-slate-800/50 h-2.5 rounded-full p-0.5">
-                        <div class="bg-green-500 h-full rounded-full shadow-[0_0_15px_rgba(34,197,94,0.4)]" style="width: 18%"></div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="flex justify-between text-[11px] mb-1 font-bold uppercase text-blue-400">
-                        <span>Protezione (XEON)</span>
-                        <span>82%</span>
-                    </div>
-                    <div class="w-full bg-slate-800/50 h-2.5 rounded-full p-0.5">
-                        <div class="bg-blue-500 h-full rounded-full shadow-[0_0_15px_rgba(59,130,246,0.3)]" style="width: 82%"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Philosophy -->
-        <div class="glass p-6 bg-slate-900/40">
-            <h4 class="text-[10px] font-black uppercase text-green-500 mb-2 tracking-widest text-center">Filosofia Bityours</h4>
-            <p class="text-[13px] text-slate-400 leading-relaxed font-medium italic text-center">
-                "Bityours rappresenta la sovranità finanziaria individuale: ciò che investi è tuo (Yours), gestito con la precisione del bit (Digitale)."
-            </p>
-        </div>
-
-        <footer class="text-center pb-8 opacity-50">
-            <p class="text-[9px] text-slate-600 font-bold uppercase tracking-[0.4em]">© 2026 Sonny Lo Presti</p>
-        </footer>
-    </div>
-
-    <!-- POP-UP PAGAMENTI -->
-    <div id="paymentModal" class="modal" onclick="closeModal()">
-        <div class="glass p-8 w-full max-w-sm space-y-6 bg-slate-900" onclick="event.stopPropagation()">
-            <div class="text-center">
-                <h2 class="text-xl font-black uppercase text-white">Contatta / Acquista</h2>
-                <p class="text-xs text-slate-400 mt-2 italic">Per offerte sul dominio o supporto al piano:</p>
-            </div>
-
-            <div class="space-y-3">
-                <!-- PayPal -->
-                <a href="https://www.paypal.me/TUO_USERNAME" target="_blank" class="flex items-center gap-4 p-4 rounded-xl bg-[#003087] text-white font-bold transition hover:opacity-80">
-                   <span class="w-8">🅿️</span> PayPal
-                </a>
-                
-                <!-- Revolut -->
-                <a href="https://revolut.me/@lopresti7" target="_blank" class="flex items-center gap-4 p-4 rounded-xl bg-white text-black font-bold transition hover:opacity-80">
-                   <span class="w-8">💎</span> Revolut
-                </a>
-
-                <!-- Email -->
-                <a href="mailto:tuaemail@esempio.com" class="flex items-center gap-4 p-4 rounded-xl bg-slate-800 text-white font-bold transition hover:opacity-80">
-                   <span class="w-8">✉️</span> Email Direct
-                </a>
-            </div>
-
-            <button onclick="closeModal()" class="w-full text-slate-500 text-xs font-bold uppercase tracking-widest pt-4">Chiudi</button>
-        </div>
-    </div>
-
-    <script>
-        function openModal() { document.getElementById('paymentModal').classList.add('active'); }
-        function closeModal() { document.getElementById('paymentModal').classList.remove('active'); }
-    </script>
-</body>
-</html>
-
-        <div class="px-2 space-y-2">
-            <h1 class="text-3xl font-black italic tracking-tighter uppercase text-white leading-none">BITYOURS<span class="text-green-500">.COM</span></h1>
-            <p class="text-slate-400 text-sm leading-relaxed font-medium">
-                Il punto di incontro tra <span class="text-green-400">finanza digitale</span> e strategie di investimento a lungo termine. 
-                Sviluppato per tracciare il piano <span class="text-white font-bold italic underline decoration-green-500">Ultimate Bond/world</span>.
-            </p>
-        </div>
-
-        <!-- Capitale Totale -->
-        <div class="glass p-8 text-center border-b-4 border-b-green-500 shadow-2xl relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-green-500/50 to-transparent"></div>
-            <h3 class="text-slate-500 text-[10px] font-bold uppercase tracking-[0.3em] mb-1">Capitale Investito</h3>
-            <p class="text-5xl font-black text-white leading-tight">€ 282,14</p>
-            <div class="flex justify-center gap-4 mt-3 text-[10px] font-bold text-slate-400 uppercase tracking-tighter">
-                <span>Credem: € 200</span>
-                <span>•</span>
-                <span>Trade Republic: € 82,14</span>
-            </div>
-        </div>
-
-        <!-- Target Allocation Green&Gain -->
-        <div class="glass p-6 space-y-5">
-            <div class="flex justify-between items-end">
-                <h2 class="text-xs font-bold text-slate-300 uppercase tracking-widest italic border-l-2 border-green-500 pl-3">Asset Allocation</h2>
-                <span class="text-[10px] text-slate-500 font-bold uppercase italic">Target 55/30/15</span>
-            </div>
-            
-            <div class="space-y-4">
-                <!-- Growth -->
-                <div>
-                    <div class="flex justify-between text-[11px] mb-1 font-bold">
-                        <span class="text-green-400 uppercase">Crescita (Growth)</span>
-                        <span class="text-white">91%</span>
-                    </div>
-                    <div class="w-full bg-slate-800/50 h-2.5 rounded-full p-0.5">
-                        <div class="bg-green-500 h-full rounded-full shadow-[0_0_15px_rgba(34,197,94,0.4)]" style="width: 91%"></div>
-                    </div>
-                </div>
-
-                <!-- Defense -->
-                <div>
-                    <div class="flex justify-between text-[11px] mb-1 font-bold">
-                        <span class="text-blue-400 uppercase">Protezione (Defense)</span>
-                        <span class="text-white">6%</span>
-                    </div>
-                    <div class="w-full bg-slate-800/50 h-2.5 rounded-full p-0.5">
-                        <div class="bg-blue-500 h-full rounded-full shadow-[0_0_15px_rgba(59,130,246,0.3)]" style="width: 6%"></div>
-                    </div>
-                </div>
-
-                <!-- Dividends -->
-                <div>
-                    <div class="flex justify-between text-[11px] mb-1 font-bold">
-                        <span class="text-yellow-500 uppercase opacity-60">Dividendi</span>
-                        <span class="text-slate-500 italic">Avvio Fase 3</span>
-                    </div>
-                    <div class="w-full bg-slate-800/50 h-2.5 rounded-full p-0.5">
-                        <div class="bg-yellow-500/20 h-full rounded-full" style="width: 3%"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sezione "Perché Bityours" -->
-        <div class="glass p-6 bg-slate-900/40">
-            <h4 class="text-[10px] font-black uppercase text-green-500 mb-2 tracking-widest">Philosophy</h4>
-            <p class="text-xs text-slate-400 leading-relaxed italic">
-                "Bityours non è solo un dominio, è una visione. Rappresenta la sovranità finanziaria individuale: ciò che investi è tuo (Yours), gestito con la precisione del digitale (Bit)."
-            </p>
-        </div>
-
-        <!-- Status Piano -->
-        <div class="p-4 bg-green-500/5 border border-green-500/10 rounded-2xl flex items-center gap-4">
-            <div class="h-2 w-2 bg-green-500 rounded-full animate-pulse"></div>
-            <p class="text-green-200 text-[10px] font-bold uppercase tracking-widest leading-none">
-                Focus Marzo: Incremento Protezione XEON (+10€)
-            </p>
-        </div>
-
-        <footer class="text-center pb-8 space-y-1">
-            <p class="text-[9px] text-slate-700 font-bold uppercase tracking-[0.4em]">© 2026 Sonny Lo Presti</p>
-            <p class="text-[8px] text-slate-800 font-medium">Bityours - Your digital financial footprint</p>
-        </footer>
-    </div>
-</body>
-</html>
-
-            
-<a href="https://revolut.me/lopresti7/1300" class="btn">ACQUISTA ORA</a>
-
-<a href="mailto:nicoaabbcc@gmail.com?subject=Offerta per bityours.com" class="btn" style="margin-top: 10px;">
-   FAI UN'OFFERTA
-</a>
-
-    </div>
-
-    <div class="footer">
-        © 2026 Sonny Lo Presti - Green&Gain Project
-    </div>
-</div>
-
-</body>
-</html>
-            <div class="text-right">
-                <span class="px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-[10px] font-bold border border-green-500/20">
-                    AMMINISTRATO 2026
-                </span>
-            </div>
-        </header>
-
-        <!-- Saldo Totale -->
-        <div class="glass p-6 text-center">
-            <h3 class="text-slate-400 text-xs font-bold uppercase mb-1">Capitale Totale Investito</h3>
-            <p class="text-5xl font-extrabold text-white">€ 223,14</p>
-            <div class="flex justify-center gap-6 mt-4 text-xs font-medium">
-                <div class="flex items-center gap-1">
-                    <span class="w-2 h-2 rounded-full bg-blue-500"></span> Credem: € 200
-                </div>
-                <div class="flex items-center gap-1">
-                    <span class="w-2 h-2 rounded-full bg-green-500"></span> Trade Republic: € 23,14
-                </div>
-            </div>
-        </div>
-
-        <!-- Ciclo Rotazione 43 Mesi -->
-        <div class="glass p-6">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="text-lg font-bold">Ciclo 43 Mesi</h2>
-                <span class="text-blue-400 font-bold text-sm">Fase 1: Pictet Global Trends</span>
-            </div>
-            <div class="space-y-2">
-                <div class="flex justify-between text-xs text-slate-400 mb-1">
-                    <span>Avanzamento Fase (2/4 mesi)</span>
-                    <span>50%</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="h-full bg-blue-500" style="width: 50%"></div>
-                </div>
-            </div>
-            <div class="grid grid-cols-2 gap-3 mt-4">
-                <div class="p-3 bg-slate-800/50 rounded-xl border border-slate-700">
-                    <span class="block text-[10px] text-slate-500 uppercase">Prossimo (Mese 5)</span>
-                    <span class="text-sm font-semibold">Bond Income (6m)</span>
-                </div>
-                <div class="p-3 bg-slate-800/50 rounded-xl border border-slate-700">
-                    <span class="block text-[10px] text-slate-500 uppercase">Focus Anno 6</span>
-                    <span class="text-sm font-semibold">Loop Anno 3</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Analisi Target 55/30/15 -->
-        <div class="glass p-6">
-            <h2 class="text-lg font-bold mb-6 italic">Verifica Target Green&Gain</h2>
-            
-            <div class="space-y-5">
-                <!-- Growth -->
-                <div>
-                    <div class="flex justify-between text-sm mb-2">
-                        <span class="font-semibold">Crescita (Target 55%)</span>
-                        <span class="font-bold text-green-400">89,6%</span>
-                    </div>
-                    <div class="progress-bar"><div class="h-full fill-growth" style="width: 89.6%"></div></div>
-                </div>
-
-                <!-- Defense -->
-                <div>
-                    <div class="flex justify-between text-sm mb-2">
-                        <span class="font-semibold">Protezione (Target 30%)</span>
-                        <span class="font-bold text-blue-400">7,4%</span>
-                    </div>
-                    <div class="progress-bar"><div class="h-full fill-defense" style="width: 7.4%"></div></div>
-                </div>
-
-                <!-- Dividend -->
-                <div>
-                    <div class="flex justify-between text-sm mb-2">
-                        <span class="font-semibold">Distribuzione (Target 15%)</span>
-                        <span class="font-bold text-yellow-400">3,0%</span>
-                    </div>
-                    <div class="progress-bar"><div class="h-full fill-dividend" style="width: 3%"></div></div>
-                </div>
-            </div>
-            
-            <div class="mt-6 p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-xl">
-                <p class="text-yellow-200 text-[11px] leading-relaxed">
-                    <strong>AI INSIGHT:</strong> Portafoglio sbilanciato su Crescita (Pictet). Per rientrare nel target 55/30/15, aumenta i versamenti su Bond Income e EM Bonds nelle prossime fasi.
-                </p>
-            </div>
-        </div>
-
-        <footer class="text-center space-y-2 opacity-50">
-            <p class="text-[10px] font-bold tracking-[0.3em] uppercase">Bityours.com Financial Suite</p>
-            <p class="text-[9px]">© 2026 Sonny Lo Presti | Sottodominio attivo su app.bityours.com</p>
-        </footer>
-
-    </div>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bityours.com | Green&Gain Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
-        body { background: #020617; color: #f8fafc; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; }
-        .glass { background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 28px; }
-        .gold-button { 
-            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
-            box-shadow: 0 10px 25px -5px rgba(217, 119, 6, 0.5);
-        }
-        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.96); z-index: 999; align-items: center; justify-content: center; padding: 20px; }
-        .modal.active { display: flex; }
-        /* Forza bianco assoluto per il nome di Sonny */
-        .sonny-footer { color: #ffffff !important; font-weight: 800; letter-spacing: 0.3em; text-shadow: 0 0 10px rgba(255,255,255,0.2); }
-    </style>
-</head>
-<body class="p-5 md:p-10 flex flex-col items-center">
-    <div class="max-w-md w-full space-y-7 pb-20">
-        
-        <!-- Call to Action Gold -->
-        <button onclick="openModal()" class="gold-button w-full py-6 px-7 rounded-[32px] flex justify-between items-center text-white border border-yellow-200/20 transform active:scale-95 transition-transform">
-            <div class="flex flex-col text-left">
-                <span class="text-[10px] uppercase font-extrabold opacity-80 tracking-[0.2em] mb-1">Premium Asset</span>
-                <span class="text-2xl font-black tracking-tighter uppercase italic leading-none">Acquista Bityours.com</span>
-            </div>
-            <div class="bg-black/20 p-3 rounded-2xl">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4" />
-                </svg>
-            </div>
-        </button>
-
-        <!-- Titolo Principale -->
-        <div class="text-center space-y-2">
-            <h1 class="text-5xl font-black italic tracking-tighter uppercase text-white leading-none">BITYOURS<span class="text-green-500">.COM</span></h1>
-            <p class="text-slate-400 text-xs font-bold uppercase tracking-[0.3em] opacity-60">Ultimate Bond/World Journal</p>
-        </div>
-
-        <!-- Descrizione Progetto -->
-        <div class="glass p-6 border-l-4 border-l-green-500 bg-green-500/5">
-            <h4 class="text-[10px] font-black uppercase text-green-400 mb-2 tracking-widest">Descrizione Progetto</h4>
-            <p class="text-[14px] text-slate-300 leading-relaxed font-medium">
-                Il progetto <span class="text-white font-bold">Green&Gain</span> è una strategia di accumulo basata sul piano <span class="text-green-500 font-bold italic">Ultimate Bond/World</span>. L'obiettivo è la crescita patrimoniale costante attraverso asset digitali e obbligazionari, ottimizzando il rischio e massimizzando il rendimento nel lungo periodo.
+        <div class="glass-card p-6 border-l-4 border-green-500">
+            <h2 class="text-xs font-black uppercase text-green-400 mb-2 tracking-widest">Il Progetto</h2>
+            <p class="text-sm leading-relaxed text-slate-200">
+                Il diario finanziario <span class="font-bold">Green&Gain</span> segue la strategia <span class="italic text-white">"Ultimate Bond/world"</span>. Un piano d'azione mirato a bilanciare la sicurezza delle obbligazioni con la crescita dell'azionario mondiale per una sovranità finanziaria totale.
             </p>
         </div>
 
         <!-- Capitale Attuale -->
-        <div class="glass p-8 text-center shadow-2xl">
-            <h3 class="text-slate-500 text-[10px] font-bold uppercase tracking-[0.4em] mb-2">Capitale Investito</h3>
-            <p class="text-5xl font-black text-white italic tracking-tighter">€ 426,50</p>
-            <div class="flex justify-center gap-5 mt-4 text-[11px] font-bold text-slate-400 uppercase">
-                <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-blue-500"></span> Credem: € 200</span>
-                <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-green-500"></span> Trade: € 226,50</span>
+        <div class="glass-card p-8 text-center border-b-4 border-green-500">
+            <span class="text-[10px] text-slate-400 uppercase font-bold tracking-widest">Capitale Investito Totale</span>
+            <div class="text-5xl font-black mt-1 italic">€ 426,50</div>
+            <div class="flex justify-center gap-4 mt-3 text-[10px] font-medium text-slate-400">
+                <span class="bg-white/5 px-2 py-1 rounded">Credem: €200</span>
+                <span class="bg-white/5 px-2 py-1 rounded">Trade Republic: €226,50</span>
             </div>
         </div>
 
-        <!-- Obiettivo Strategico 55/30/15 -->
-        <div class="glass p-7 space-y-6">
-            <div class="flex justify-between items-center border-b border-white/10 pb-3">
-                <h2 class="text-xs font-black text-white uppercase tracking-widest italic">Obiettivo: 55/30/15</h2>
-                <span class="text-[10px] bg-white/10 px-2 py-1 rounded text-slate-300 font-bold">Piano 2026</span>
+        <!-- Obiettivo 55/30/15 -->
+        <div class="glass-card p-6 space-y-5">
+            <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                <h3 class="text-xs font-black uppercase italic tracking-wider">Target Portfolio</h3>
+                <span class="text-green-500 font-black italic text-sm">55 / 30 / 15</span>
             </div>
             
-            <div class="space-y-5">
+            <div class="space-y-4">
                 <!-- Crescita -->
                 <div>
-                    <div class="flex justify-between text-[11px] mb-2 font-bold uppercase">
-                        <span class="text-green-400 tracking-wider text-center">Crescita (Target 55%)</span>
-                        <span class="text-white">18%</span>
+                    <div class="flex justify-between text-[11px] font-bold mb-1">
+                        <span class="text-green-400 uppercase">Crescita (Target 55%)</span>
+                        <span>18%</span>
                     </div>
-                    <div class="w-full bg-slate-800/80 h-3 rounded-full overflow-hidden">
-                        <div class="bg-green-500 h-full rounded-full shadow-[0_0_12px_rgba(34,197,94,0.5)]" style="width: 18%"></div>
+                    <div class="w-full bg-slate-900 h-2.5 rounded-full">
+                        <div class="bg-green-500 h-full rounded-full" style="width: 18%"></div>
                     </div>
                 </div>
 
                 <!-- Protezione -->
                 <div>
-                    <div class="flex justify-between text-[11px] mb-2 font-bold uppercase">
-                        <span class="text-blue-400 tracking-wider">Protezione (Target 30%)</span>
-                        <span class="text-white text-center">82%</span>
+                    <div class="flex justify-between text-[11px] font-bold mb-1">
+                        <span class="text-blue-400 uppercase">Protezione (Target 30%)</span>
+                        <span>82%</span>
                     </div>
-                    <div class="w-full bg-slate-800/80 h-3 rounded-full overflow-hidden">
-                        <div class="bg-blue-500 h-full rounded-full shadow-[0_0_12px_rgba(59,130,246,0.5)]" style="width: 82%"></div>
+                    <div class="w-full bg-slate-900 h-2.5 rounded-full">
+                        <div class="bg-blue-500 h-full rounded-full" style="width: 82%"></div>
                     </div>
                 </div>
 
                 <!-- Dividendi -->
-                <div class="flex justify-between items-center bg-white/5 p-3 rounded-xl border border-white/5">
-                    <span class="text-[11px] font-bold text-yellow-500 uppercase tracking-widest">Dividendi (Target 15%)</span>
-                    <span class="text-[10px] text-slate-500 font-black italic uppercase">Fase 3: Attesa</span>
+                <div class="flex justify-between items-center text-[11px] font-bold text-slate-500 italic">
+                    <span class="uppercase tracking-widest">Dividendi (Target 15%)</span>
+                    <span>In attesa Fase 3</span>
                 </div>
             </div>
         </div>
 
-        <!-- Footer Chiarissimo -->
-        <footer class="text-center pt-10 pb-16 space-y-4">
-            <div class="flex items-center justify-center gap-4">
-                <div class="h-px w-10 bg-white/20"></div>
-                <p class="sonny-footer text-xl uppercase italic">
-                    © 2026 SONNY LO PRESTI
-                </p>
-                <div class="h-px w-10 bg-white/20"></div>
-            </div>
-            <p class="text-green-500 text-[10px] font-black uppercase tracking-[0.3em] opacity-80">
+        <!-- FOOTER - SONNY LO PRESTI -->
+        <div class="pt-12 pb-8 text-center">
+            <div class="inline-block h-px w-12 bg-green-500 mb-4"></div>
+            <p class="white-bold-text text-2xl tracking-[0.2em] leading-none mb-2">
+                © 2026 SONNY LO PRESTI
+            </p>
+            <p class="text-green-500 text-[10px] font-bold uppercase tracking-[0.3em]">
                 Amministratore Unico • Green&Gain Project
             </p>
-        </footer>
-    </div>
-
-    <!-- Modale Pagamenti -->
-    <div id="paymentModal" class="modal" onclick="closeModal()">
-        <div class="glass p-10 w-full max-w-sm space-y-6 bg-[#020617] border-yellow-500/30" onclick="event.stopPropagation()">
-            <div class="text-center">
-                <h2 class="text-2xl font-black uppercase text-white italic tracking-tighter">Bityours.com</h2>
-                <p class="text-[11px] text-slate-400 mt-2 font-bold uppercase tracking-widest">Scegli il tuo metodo:</p>
-            </div>
-
-            <div class="space-y-4">
-                <a href="https://revolut.me/lopresti7" target="_blank" class="flex items-center justify-between p-5 rounded-3xl bg-white text-black font-black transition active:scale-95">
-                   <div class="flex items-center gap-3">💎 Revolut</div>
-                   <span class="text-[10px] opacity-40 italic">@lopresti7</span>
-                </a>
-
-                <a href="https://www.paypal.me/NicoCasacci" target="_blank" class="flex items-center justify-between p-5 rounded-3xl bg-[#0070ba] text-white font-black transition active:scale-95">
-                   <div class="flex items-center gap-3">🅿️ PayPal</div>
-                   <span class="text-[10px] opacity-40 italic">@NicoCasacci</span>
-                </a>
-
-                <a href="mailto:nicoaabbcc@gmail.com" class="flex items-center justify-between p-5 rounded-3xl bg-slate-800 text-white font-black transition active:scale-95">
-                   <div class="flex items-center gap-3">✉️ Email</div>
-                   <span class="text-[10px] opacity-40 italic text-center">Invia</span>
-                </a>
-            </div>
-
-            <button onclick="closeModal()" class="w-full text-slate-500 text-[11px] font-black uppercase tracking-[0.4em] pt-4">Torna Indietro</button>
         </div>
     </div>
 
-    <script>
-        function openModal() { document.getElementById('paymentModal').classList.add('active'); }
-        function closeModal() { document.getElementById('paymentModal').classList.remove('active'); }
-    </script>
+    <!-- Modale Pagamenti -->
+    <div id="pay-modal" class="modal" onclick="this.classList.remove('active')">
+        <div class="glass-card p-8 w-full max-w-xs space-y-4 text-center border-yellow-500/50" onclick="event.stopPropagation()">
+            <h2 class="font-black uppercase italic text-xl">Contatti e Pagamenti</h2>
+            <div class="space-y-3">
+                <a href="https://revolut.me/lopresti7" target="_blank" class="block p-4 bg-white text-black font-black rounded-xl text-sm">REVOLUT: @lopresti7</a>
+                <a href="https://www.paypal.me/NicoCasacci" target="_blank" class="block p-4 bg-[#0070ba] text-white font-black rounded-xl text-sm">PAYPAL: @NicoCasacci</a>
+                <a href="mailto:nicoaabbcc@gmail.com" class="block p-4 bg-slate-800 text-white font-black rounded-xl text-sm">EMAIL: Invia Messaggio</a>
+            </div>
+            <button onclick="document.getElementById('pay-modal').classList.remove('active')" class="text-[10px] text-slate-500 font-bold uppercase mt-4">Chiudi</button>
+        </div>
+    </div>
 </body>
 </html>
 
+                
