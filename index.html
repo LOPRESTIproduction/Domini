@@ -14,33 +14,29 @@
         .modal.active { display: flex; }
         [lang="en"] { display: none; }
         body.lang-en [lang="it"] { display: none; }
-        body.lang-en [lang="en"] { display: block; }
+        body.lang-en [lang="en"] { block; }
     </style>
 </head>
 <body class="p-4 flex flex-col items-center">
     <div class="max-w-md w-full space-y-6 pb-10">
         
-        <!-- Selettore Lingua -->
         <div class="flex justify-end gap-2 text-[10px] font-bold uppercase tracking-widest">
             <button onclick="document.body.classList.remove('lang-en')" class="hover:text-green-500 transition">IT</button>
             <span class="opacity-30">|</span>
             <button onclick="document.body.classList.add('lang-en')" class="hover:text-green-500 transition">EN</button>
         </div>
 
-        <!-- Tasto Acquisto che apre il Modale -->
         <button onclick="document.getElementById('pay-modal').classList.add('active')" class="gold-btn w-full py-5 rounded-2xl text-white font-extrabold uppercase italic flex flex-col items-center transition transform active:scale-95 shadow-lg">
             <span lang="it" class="text-[10px] opacity-90 not-italic tracking-widest mb-1 font-bold">Opzioni di Acquisto</span>
             <span lang="en" class="text-[10px] opacity-90 not-italic tracking-widest mb-1 font-bold">Purchase Options</span>
             <span class="text-xl">BUY BITYOURS.COM</span>
         </button>
 
-        <!-- Logo -->
         <div class="text-center">
             <h1 class="text-5xl font-extrabold italic uppercase tracking-tighter">BITYOURS<span class="text-green-500">.COM</span></h1>
             <p class="text-green-500 text-[10px] font-black tracking-[0.4em] uppercase">Green&Gain Portfolio</p>
         </div>
 
-        <!-- Box Progetto -->
         <div class="glass p-6 border-l-4 border-green-500">
             <div lang="it">
                 <p class="text-sm leading-relaxed text-slate-200">
@@ -54,14 +50,12 @@
             </div>
         </div>
 
-        <!-- Capitale -->
         <div class="glass p-8 text-center border-b-2 border-green-500">
             <span lang="it" class="text-[10px] text-slate-500 uppercase font-black tracking-widest">Capitale Investito</span>
             <span lang="en" class="text-[10px] text-slate-500 uppercase font-black tracking-widest">Invested Capital</span>
             <div class="text-5xl font-extrabold mt-1 italic tracking-tighter text-white">€ 426,50</div>
         </div>
 
-        <!-- Target -->
         <div class="glass p-6 space-y-4">
             <div class="flex justify-between items-center border-b border-white/10 pb-2">
                 <span lang="it" class="text-xs font-black uppercase italic">Target Portfolio</span>
@@ -92,7 +86,6 @@
             </div>
         </div>
 
-        <!-- Firma -->
         <footer class="text-center pt-10">
             <p style="color: #ffffff !important;" class="text-2xl font-extrabold tracking-[0.2em] uppercase mb-1">
                 © 2026 SONNY LO PRESTI
@@ -101,32 +94,28 @@
         </footer>
     </div>
 
-    <!-- Modale Opzioni di Pagamento -->
     <div id="pay-modal" class="modal" onclick="this.classList.remove('active')">
         <div class="glass p-8 w-full max-w-sm space-y-4 bg-[#020617] text-center border-yellow-500/30" onclick="event.stopPropagation()">
             <h2 class="text-2xl font-black uppercase italic text-white tracking-tighter">Bityours.com</h2>
             
             <div class="space-y-3">
-                <!-- Option 1: Afternic -->
-                <a href="https://www.afternic.com/domains/bityours.com" target="_blank" class="block p-4 bg-white text-black font-extrabold rounded-2xl shadow-lg no-underline text-sm uppercase italic">
-                    Buy on Afternic ($1,250)
+                <a href="https://it.godaddy.com/domainsearch/find?checkAvail=1&domainToCheck=bityours.com" target="_blank" class="block p-4 bg-[#00a63f] text-white font-extrabold rounded-2xl shadow-lg no-underline text-sm uppercase italic">
+                    <span class="block text-[9px] opacity-80 not-italic">Acquista subito o a rate</span>
+                    GO-DADDY (OFFERTA/RATE)
                 </a>
 
-                <!-- Option 2: Make an Offer via Email (NUOVO) -->
-                <a href="mailto:nicoaabbcc@gmail.com?subject=Offer for Bityours.com" class="block p-4 bg-green-600 text-white font-extrabold rounded-2xl shadow-lg no-underline text-sm uppercase italic">
+                <a href="mailto:nicoaabbcc@gmail.com?subject=Offer for Bityours.com" class="block p-4 bg-slate-700 text-white font-extrabold rounded-2xl shadow-lg no-underline text-sm uppercase italic">
                     <span lang="it">Fai un'offerta (Email)</span>
                     <span lang="en">Make an Offer (Email)</span>
                 </a>
                 
                 <div class="text-[10px] font-bold text-slate-500 uppercase tracking-widest pt-2">Direct Payments</div>
                 
-                <!-- Option 3: Revolut -->
-                <a href="https://revolut.me/lopresti7" target="_blank" class="block p-4 bg-blue-600 text-white font-extrabold rounded-2xl shadow-lg no-underline text-sm">
+                <a href="https://revolut.me/lopresti7" target="_blank" class="block p-4 bg-blue-600 text-white font-extrabold rounded-2xl shadow-lg no-underline text-sm uppercase italic">
                     REVOLUT: @lopresti7
                 </a>
                 
-                <!-- Option 4: PayPal -->
-                <a href="https://www.paypal.me/NicoCasacci" target="_blank" class="block p-4 bg-[#0070ba] text-white font-extrabold rounded-2xl shadow-lg no-underline text-sm">
+                <a href="https://www.paypal.me/NicoCasacci" target="_blank" class="block p-4 bg-[#0070ba] text-white font-extrabold rounded-2xl shadow-lg no-underline text-sm uppercase italic">
                     PAYPAL: @NicoCasacci
                 </a>
             </div>
@@ -136,4 +125,3 @@
     </div>
 </body>
 </html>
-
