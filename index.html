@@ -14,16 +14,16 @@
         .modal.active { display: flex; }
         [lang="en"] { display: none; }
         body.lang-en [lang="it"] { display: none; }
-        body.lang-en [lang="en"] { block; }
+        body.lang-en [lang="en"] { display: block; }
     </style>
 </head>
 <body class="p-4 flex flex-col items-center">
     <div class="max-w-md w-full space-y-6 pb-10">
         
         <div class="flex justify-end gap-2 text-[10px] font-bold uppercase tracking-widest">
-            <button onclick="document.body.classList.remove('lang-en')" class="hover:text-green-500 transition">IT</button>
+            <button onclick="document.body.classList.remove('lang-en')" class="hover:text-green-500 transition text-white">IT</button>
             <span class="opacity-30">|</span>
-            <button onclick="document.body.classList.add('lang-en')" class="hover:text-green-500 transition">EN</button>
+            <button onclick="document.body.classList.add('lang-en')" class="hover:text-green-500 transition text-white">EN</button>
         </div>
 
         <button onclick="document.getElementById('pay-modal').classList.add('active')" class="gold-btn w-full py-5 rounded-2xl text-white font-extrabold uppercase italic flex flex-col items-center transition transform active:scale-95 shadow-lg">
@@ -75,8 +75,8 @@
                 </div>
                 <div>
                     <div class="flex justify-between mb-1">
-                        <span class="text-blue-400" lang="it">PROTEZIONE (30%)</span>
-                        <span class="text-blue-400" lang="en">PROTECTION (30%)</span>
+                        <span class="text-blue-400" lang="it">DIFESA/DIVIDENDI (45%)</span>
+                        <span class="text-blue-400" lang="en">DEFENSE/DIVIDENDS (45%)</span>
                         <span>82%</span>
                     </div>
                     <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden">
@@ -100,7 +100,7 @@
             
             <div class="space-y-3">
                 <a href="https://it.godaddy.com/domainsearch/find?checkAvail=1&domainToCheck=bityours.com" target="_blank" class="block p-4 bg-[#00a63f] text-white font-extrabold rounded-2xl shadow-lg no-underline text-sm uppercase italic">
-                    <span class="block text-[9px] opacity-90 not-italic mb-1">Pagamento Unico o Rateale</span>
+                    <span class="block text-[9px] opacity-90 not-italic mb-1">Pagamento Unico o a Rate</span>
                     ACQUISTA SU GODADDY
                 </a>
 
@@ -124,4 +124,5 @@
         </div>
     </div>
 </body>
-</html>
+                            </html>
+                                                                                             
