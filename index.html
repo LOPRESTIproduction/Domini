@@ -22,10 +22,10 @@
 <body class="p-4 flex flex-col items-center">
     <div class="max-w-md w-full space-y-6 pb-10">
         
-        <div class="flex justify-end gap-2 text-[10px] font-bold uppercase tracking-widest">
-            <button onclick="document.body.classList.remove('lang-en')" class="hover:text-green-500 transition text-white">IT</button>
-            <span class="opacity-30">|</span>
-            <button onclick="document.body.classList.add('lang-en')" class="hover:text-green-500 transition text-white">EN</button>
+        <div class="flex justify-end gap-2 text-[10px] font-bold uppercase tracking-widest text-white/50">
+            <button onclick="document.body.classList.remove('lang-en')" class="hover:text-green-500">IT</button>
+            <span>|</span>
+            <button onclick="document.body.classList.add('lang-en')" class="hover:text-green-500">EN</button>
         </div>
 
         <button onclick="document.getElementById('pay-modal').classList.add('active')" class="gold-btn w-full py-5 rounded-2xl text-white font-extrabold uppercase italic flex flex-col items-center transition transform active:scale-95 shadow-lg">
@@ -40,69 +40,61 @@
         </div>
 
         <div class="glass p-6 border-l-4 border-green-500">
-            <div lang="it">
-                <p class="text-sm leading-relaxed text-slate-200">
-                    Il progetto <span class="text-white font-bold">Green&Gain</span> segue la strategia <span class="italic text-white">"Ultimate Bond/world"</span>. Un asset unico che unisce un dominio premium a un diario finanziario attivo.
-                </p>
-            </div>
-            <div lang="en">
-                <p class="text-sm leading-relaxed text-slate-200">
-                    The <span class="text-white font-bold">Green&Gain</span> project follows the <span class="italic text-white">"Ultimate Bond/world"</span> strategy. A unique asset combining a premium domain with an active financial diary.
-                </p>
-            </div>
+            <p class="text-sm leading-relaxed text-slate-200" lang="it">
+                Il progetto <span class="text-white font-bold">Green&Gain</span> segue la strategia <span class="italic text-white">"Ultimate Bond/world"</span>. Un asset unico con diario finanziario attivo.
+            </p>
+            <p class="text-sm leading-relaxed text-slate-200" lang="en">
+                The <span class="text-white font-bold">Green&Gain</span> project follows the <span class="italic text-white">"Ultimate Bond/world"</span> strategy. A unique asset with an active financial diary.
+            </p>
         </div>
 
         <div class="glass p-8 text-center border-b-2 border-green-500">
-            <span lang="it" class="text-[10px] text-slate-500 uppercase font-black tracking-widest">Capitale Investito</span>
-            <span lang="en" class="text-[10px] text-slate-500 uppercase font-black tracking-widest">Invested Capital</span>
-            <div class="text-5xl font-extrabold mt-1 italic tracking-tighter text-white">€ 426,50</div>
+            <span lang="it" class="text-[10px] text-slate-500 uppercase font-black tracking-widest">Capitale Investito (Live)</span>
+            <span lang="en" class="text-[10px] text-slate-500 uppercase font-black tracking-widest">Invested Capital (Live)</span>
+            <div id="live-balance" class="text-5xl font-extrabold mt-1 italic tracking-tighter text-white">€ 426,50</div>
         </div>
 
         <div class="glass overflow-hidden">
             <div class="bg-white/5 px-6 py-4 border-b border-white/10 flex justify-between items-center">
-                <span class="text-[10px] font-black uppercase tracking-widest text-green-500 italic">Posizioni Trade Republic</span>
+                <span class="text-[10px] font-black uppercase tracking-widest text-green-500 italic">Posizioni Asset</span>
                 <div class="flex items-center gap-2">
                     <div class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
-                    <span id="update-time" class="text-[9px] text-slate-500 font-bold">LIVE</span>
+                    <span id="update-time" class="text-[9px] text-slate-500 font-bold uppercase">Live Market</span>
                 </div>
             </div>
             
-            <div class="min-h-[200px]">
+            <div class="min-h-[250px]">
                 <table class="w-full text-left border-collapse">
                     <tbody id="ticker-body" class="text-[11px] font-bold">
-                        <tr>
-                            <td class="p-10 text-center text-slate-500 animate-pulse uppercase tracking-widest">
-                                Caricamento dati mercati...
-                            </td>
-                        </tr>
+                        <tr><td class="p-10 text-center text-slate-500 animate-pulse uppercase tracking-widest">Aggiornamento Feed...</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
         <footer class="text-center pt-10">
-            <p style="color: #ffffff !important;" class="text-2xl font-extrabold tracking-[0.2em] uppercase mb-1">
-                © 2026 SONNY LO PRESTI
-            </p>
+            <p class="text-2xl font-extrabold tracking-[0.2em] uppercase mb-1 text-white">© 2026 SONNY LO PRESTI</p>
             <p class="text-green-500 text-[10px] font-black uppercase tracking-widest italic">Managing Director</p>
         </footer>
     </div>
 
     <div id="pay-modal" class="modal" onclick="this.classList.remove('active')">
-        <div class="glass p-8 w-full max-w-sm space-y-4 bg-[#020617] text-center border-yellow-500/30" onclick="event.stopPropagation()">
+        <div class="glass p-8 w-full max-w-sm space-y-4 bg-[#020617] text-center" onclick="event.stopPropagation()">
             <h2 class="text-2xl font-black uppercase italic text-white tracking-tighter">Bityours.com</h2>
             <div class="space-y-3">
-                <a href="https://it.godaddy.com/domainsearch/find?checkAvail=1&domainToCheck=bityours.com" target="_blank" class="block p-4 bg-[#00a63f] text-white font-extrabold rounded-2xl shadow-lg no-underline text-sm uppercase italic">ACQUISTA SU GODADDY</a>
-                <a href="mailto:nicoaabbcc@gmail.com?subject=Offer for Bityours.com" class="block p-4 bg-slate-700 text-white font-extrabold rounded-2xl shadow-lg no-underline text-sm uppercase italic">FAI UN'OFFERTA (EMAIL)</a>
+                <a href="https://it.godaddy.com/domainsearch/find?checkAvail=1&domainToCheck=bityours.com" target="_blank" class="block p-4 bg-[#00a63f] text-white font-extrabold rounded-2xl no-underline text-sm uppercase italic">GoDaddy (Acquista/Rate)</a>
+                <a href="mailto:nicoaabbcc@gmail.com" class="block p-4 bg-slate-700 text-white font-extrabold rounded-2xl no-underline text-sm uppercase italic">Fai un'offerta</a>
             </div>
             <button onclick="document.getElementById('pay-modal').classList.remove('active')" class="text-[10px] text-slate-500 font-bold uppercase tracking-widest pt-4">Chiudi</button>
         </div>
     </div>
 
     <script>
+        const BASE_INVESTED = 788.30;
         const ASSETS = [
             { name: 'Europe Defense', ticker: 'ASML.AS' }, 
             { name: 'JPM Nasdaq Quality', ticker: 'JPSI.DE' },
+            { name: 'Pictet Global Trends', ticker: '0P0000XW64.F' }, // Ticker Euromobiliare/Pictet ESG
             { name: 'MSCI EM SRI', ticker: 'SUSM.DE' },
             { name: 'Global Dividend 100', ticker: 'ISPA.DE' },
             { name: 'Overnight Rate Swap', ticker: 'XEON.DE' },
@@ -112,11 +104,13 @@
         async function updateTicker() {
             const body = document.getElementById('ticker-body');
             const timeEl = document.getElementById('update-time');
+            const balanceEl = document.getElementById('live-balance');
             let rowsHtml = '';
+            let totalChange = 0;
+            let count = 0;
 
             for (const asset of ASSETS) {
                 try {
-                    // Usiamo un proxy diverso e più stabile
                     const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://query1.finance.yahoo.com/v8/finance/chart/' + asset.ticker + '?interval=1d&range=1d')}`);
                     const json = await res.json();
                     const data = JSON.parse(json.contents);
@@ -124,8 +118,12 @@
                     const meta = data.chart.result[0].meta;
                     const price = meta.regularMarketPrice;
                     const prev = meta.chartPreviousClose || meta.previousClose;
-                    const change = ((price - prev) / prev * 100).toFixed(2);
-                    const isPos = change >= 0;
+                    const change = ((price - prev) / prev * 100);
+                    
+                    if (asset.ticker !== 'EURUSD=X') { // Calcola media solo su asset, non su cambio valuta
+                        totalChange += change;
+                        count++;
+                    }
 
                     rowsHtml += `
                         <tr class="border-b border-white/5">
@@ -134,19 +132,22 @@
                                 <div class="text-[8px] text-slate-500 font-mono">${asset.ticker}</div>
                             </td>
                             <td class="py-4 px-6 text-right text-white font-mono">${price.toLocaleString('it-IT', {minimumFractionDigits: 2})}</td>
-                            <td class="py-4 px-6 text-right ${isPos ? 'pos' : 'neg'}">
-                                ${isPos ? '▲' : '▼'} ${Math.abs(change)}%
+                            <td class="py-4 px-6 text-right ${change >= 0 ? 'pos' : 'neg'}">
+                                ${change >= 0 ? '▲' : '▼'} ${Math.abs(change).toFixed(2)}%
                             </td>
                         </tr>
                     `;
-                } catch (e) { 
-                    console.error("Errore per " + asset.ticker, e);
-                }
+                } catch (e) { console.error(e); }
             }
-            
+
             if (rowsHtml !== '') {
                 body.innerHTML = rowsHtml;
                 timeEl.innerText = new Date().toLocaleTimeString('it-IT', {hour: '2-digit', minute:'2-digit'});
+                
+                // Aggiornamento Saldo Live basato sulla variazione media degli asset
+                const avgPerformance = totalChange / count;
+                const currentBalance = BASE_INVESTED + (BASE_INVESTED * (avgPerformance / 100));
+                balanceEl.innerText = '€ ' + currentBalance.toLocaleString('it-IT', {minimumFractionDigits: 2, maximumFractionDigits: 2});
             }
         }
 
@@ -154,4 +155,5 @@
         setInterval(updateTicker, 60000);
     </script>
 </body>
-</html>
+                                </html>
+    
