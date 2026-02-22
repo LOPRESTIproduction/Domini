@@ -15,6 +15,8 @@
         [lang="en"] { display: none; }
         body.lang-en [lang="it"] { display: none; }
         body.lang-en [lang="en"] { display: block; }
+        .pos { color: #22c55e; }
+        .neg { color: #ef4444; }
     </style>
 </head>
 <body class="p-4 flex flex-col items-center">
@@ -33,7 +35,7 @@
         </button>
 
         <div class="text-center">
-            <h1 class="text-5xl font-extrabold italic uppercase tracking-tighter">BITYOURS<span class="text-green-500">.COM</span></h1>
+            <h1 class="text-5xl font-extrabold italic uppercase tracking-tighter text-white">BITYOURS<span class="text-green-500">.COM</span></h1>
             <p class="text-green-500 text-[10px] font-black tracking-[0.4em] uppercase">Green&Gain Portfolio</p>
         </div>
 
@@ -56,33 +58,21 @@
             <div class="text-5xl font-extrabold mt-1 italic tracking-tighter text-white">€ 426,50</div>
         </div>
 
-        <div class="glass p-6 space-y-4">
-            <div class="flex justify-between items-center border-b border-white/10 pb-2">
-                <span lang="it" class="text-xs font-black uppercase italic">Target Portfolio</span>
-                <span lang="en" class="text-xs font-black uppercase italic">Portfolio Target</span>
-                <span class="text-green-500 font-black italic">55 / 30 / 15</span>
+        <div class="glass overflow-hidden">
+            <div class="bg-white/5 px-6 py-3 border-b border-white/10 flex justify-between items-center">
+                <span lang="it" class="text-[10px] font-black uppercase tracking-widest text-green-500 italic">Posizioni Trade Republic</span>
+                <span lang="en" class="text-[10px] font-black uppercase tracking-widest text-green-500 italic">Trade Republic Assets</span>
+                <div class="flex items-center gap-2">
+                    <div class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+                    <span id="update-time" class="text-[9px] text-slate-500 font-bold uppercase">--:--</span>
+                </div>
             </div>
-            <div class="space-y-4 font-bold text-[11px]">
-                <div>
-                    <div class="flex justify-between mb-1">
-                        <span class="text-green-400" lang="it">CRESCITA (55%)</span>
-                        <span class="text-green-400" lang="en">GROWTH (55%)</span>
-                        <span>18%</span>
-                    </div>
-                    <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden">
-                        <div class="bg-green-500 h-full rounded-full" style="width: 18%"></div>
-                    </div>
-                </div>
-                <div>
-                    <div class="flex justify-between mb-1">
-                        <span class="text-blue-400" lang="it">DIFESA/DIVIDENDI (45%)</span>
-                        <span class="text-blue-400" lang="en">DEFENSE/DIVIDENDS (45%)</span>
-                        <span>82%</span>
-                    </div>
-                    <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden">
-                        <div class="bg-blue-500 h-full rounded-full" style="width: 82%"></div>
-                    </div>
-                </div>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <tbody id="ticker-body" class="text-[11px] font-bold">
+                        </tbody>
+                </table>
             </div>
         </div>
 
@@ -97,32 +87,69 @@
     <div id="pay-modal" class="modal" onclick="this.classList.remove('active')">
         <div class="glass p-8 w-full max-w-sm space-y-4 bg-[#020617] text-center border-yellow-500/30" onclick="event.stopPropagation()">
             <h2 class="text-2xl font-black uppercase italic text-white tracking-tighter">Bityours.com</h2>
-            
             <div class="space-y-3">
-                <a href="https://it.godaddy.com/domainsearch/find?checkAvail=1&domainToCheck=bityours.com" target="_blank" class="block p-4 bg-[#00a63f] text-white font-extrabold rounded-2xl shadow-lg no-underline text-sm uppercase italic">
+                <a href="https://it.godaddy.com/domainsearch/find?checkAvail=1&domainToCheck=bityours.com" target="_blank" class="block p-4 bg-[#00a63f] text-white font-extrabold rounded-2xl shadow-lg no-underline text-sm uppercase italic text-white">
                     <span class="block text-[9px] opacity-90 not-italic mb-1">Pagamento Unico o a Rate</span>
                     ACQUISTA SU GODADDY
                 </a>
-
-                <a href="mailto:nicoaabbcc@gmail.com?subject=Offer for Bityours.com" class="block p-4 bg-slate-700 text-white font-extrabold rounded-2xl shadow-lg no-underline text-sm uppercase italic">
+                <a href="mailto:nicoaabbcc@gmail.com?subject=Offer for Bityours.com" class="block p-4 bg-slate-700 text-white font-extrabold rounded-2xl shadow-lg no-underline text-sm uppercase italic text-white">
                     <span lang="it">Fai un'offerta (Email)</span>
                     <span lang="en">Make an Offer (Email)</span>
                 </a>
-                
                 <div class="text-[10px] font-bold text-slate-500 uppercase tracking-widest pt-4">Pagamenti Diretti</div>
-                
-                <a href="https://revolut.me/lopresti7" target="_blank" class="block p-4 bg-blue-600 text-white font-extrabold rounded-2xl shadow-lg no-underline text-sm uppercase italic">
-                    REVOLUT: @lopresti7
-                </a>
-                
-                <a href="https://www.paypal.me/NicoCasacci" target="_blank" class="block p-4 bg-[#0070ba] text-white font-extrabold rounded-2xl shadow-lg no-underline text-sm uppercase italic">
-                    PAYPAL: @NicoCasacci
-                </a>
+                <a href="https://revolut.me/lopresti7" target="_blank" class="block p-4 bg-blue-600 text-white font-extrabold rounded-2xl shadow-lg no-underline text-sm uppercase italic text-white">REVOLUT: @lopresti7</a>
+                <a href="https://www.paypal.me/NicoCasacci" target="_blank" class="block p-4 bg-[#0070ba] text-white font-extrabold rounded-2xl shadow-lg no-underline text-sm uppercase italic text-white">PAYPAL: @NicoCasacci</a>
             </div>
-
             <button onclick="document.getElementById('pay-modal').classList.remove('active')" class="text-[10px] text-slate-500 font-bold uppercase tracking-widest pt-4">Close / Chiudi</button>
         </div>
     </div>
+
+    <script>
+        // Asset Reali basati sulla tua lista
+        const ASSETS = [
+            { name: 'Europe Defense', ticker: 'ASML.AS' }, 
+            { name: 'JPM Nasdaq Quality', ticker: 'JPSI.DE' },
+            { name: 'MSCI EM SRI', ticker: 'SUSM.DE' },
+            { name: 'Global Dividend 100', ticker: 'ISPA.DE' },
+            { name: 'Overnight Rate Swap', ticker: 'XEON.DE' },
+            { name: 'EUR / USD', ticker: 'EURUSD=X' }
+        ];
+
+        async function updateTicker() {
+            const body = document.getElementById('ticker-body');
+            const timeEl = document.getElementById('update-time');
+            let html = '';
+
+            for (const asset of ASSETS) {
+                try {
+                    const response = await fetch(`https://corsproxy.io/?url=${encodeURIComponent('https://query1.finance.yahoo.com/v8/finance/chart/' + asset.ticker + '?interval=1d&range=1d')}`);
+                    const data = await response.json();
+                    const meta = data.chart.result[0].meta;
+                    const price = meta.regularMarketPrice;
+                    const prev = meta.chartPreviousClose || meta.previousClose;
+                    const change = ((price - prev) / prev * 100).toFixed(2);
+                    const isPos = change >= 0;
+
+                    html += `
+                        <tr class="border-b border-white/5 hover:bg-white/5 transition">
+                            <td class="py-3 px-6">
+                                <div class="text-white uppercase text-[10px]">${asset.name}</div>
+                                <div class="text-[8px] text-slate-500 font-mono">${asset.ticker}</div>
+                            </td>
+                            <td class="py-3 px-6 text-right text-white font-mono">${price.toLocaleString('it-IT', {minimumFractionDigits: 2})}</td>
+                            <td class="py-3 px-6 text-right ${isPos ? 'pos' : 'neg'}">
+                                ${isPos ? '▲' : '▼'} ${Math.abs(change)}%
+                            </td>
+                        </tr>
+                    `;
+                } catch (e) { console.error(e); }
+            }
+            body.innerHTML = html;
+            timeEl.innerText = new Date().toLocaleTimeString('it-IT', {hour: '2-digit', minute:'2-digit'});
+        }
+
+        updateTicker();
+        setInterval(updateTicker, 60000);
+    </script>
 </body>
-                            </html>
-                                                                                             
+</html>
