@@ -9,69 +9,67 @@
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap');
         
         body { 
-            /* SFONDO APPLICATO A TUTTO IL SITO */
             background-color: #020617;
+            /* APPLICA LO SFONDO A TUTTO IL SITO */
             background-image: 
-                linear-gradient(to bottom, rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.95)),
-                url('https://i.imgur.com/uG9Xf7o.png'); /* Sfondo circuiti tech */
-            background-size: cover;
+                linear-gradient(to bottom, rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.98)),
+                url('https://www.transparenttextures.com/patterns/carbon-fibre.png'); /* Texture tecnica di fallback */
             background-attachment: fixed;
             color: #ffffff; 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            margin: 0; 
-            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .glass { 
-            background: rgba(30, 41, 59, 0.4); 
-            backdrop-filter: blur(12px); 
+            background: rgba(30, 41, 59, 0.5); 
+            backdrop-filter: blur(16px); 
             border: 1px solid rgba(255, 255, 255, 0.1); 
             border-radius: 24px; 
         }
 
         /* LOGO FINALE LOPRESTI PRODUCTION RIMPICCIOLITO */
         .footer-logo {
-            width: 180px; /* Dimensione ridotta come richiesto */
+            width: 180px; 
             height: auto;
-            margin: 0 auto;
-            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.2));
-            display: block;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            filter: drop-shadow(0 0 15px rgba(251, 191, 36, 0.3));
         }
 
-        /* SFUMATURA IN FONDO */
-        .page-fade {
-            background: linear-gradient(to top, #020617 0%, transparent 100%);
+        /* SFUMATURA FINALE DELLO SFONDO */
+        .footer-fade {
+            width: 100%;
             height: 150px;
+            background: linear-gradient(to top, #020617, transparent);
             margin-top: -100px;
-            pointer-events: none;
         }
-
-        .pos { color: #22c55e; }
-        .neg { color: #ef4444; }
     </style>
 </head>
-<body class="p-4 flex flex-col items-center">
-    <div class="max-w-md w-full space-y-6 pb-20">
+<body class="p-4">
+    <div class="max-w-md w-full space-y-6 pb-10">
         
-        <div class="text-center pt-4">
+        <div class="text-center pt-6">
             <h1 class="text-5xl font-extrabold italic uppercase tracking-tighter text-white">BITYOURS<span class="text-green-500">.COM</span></h1>
             <p class="text-green-500 text-[10px] font-black tracking-[0.4em] uppercase">Green&Gain Portfolio</p>
         </div>
 
         <div class="glass p-8 text-center border-b-2 border-green-500">
-            <span class="text-[10px] text-slate-500 uppercase font-black tracking-widest">Capitale Investito (Live)</span>
-            <div id="live-balance" class="text-5xl font-extrabold mt-1 italic tracking-tighter text-white">€ 788,30</div>
+            <span class="text-[10px] text-slate-400 uppercase font-black tracking-widest">Capitale Investito (Live)</span>
+            <div id="live-balance" class="text-5xl font-extrabold mt-1 italic tracking-tighter text-white">€ 787,51</div>
         </div>
 
         <div class="glass overflow-hidden">
             <div class="bg-white/5 px-6 py-4 border-b border-white/10 flex justify-between items-center">
                 <span class="text-[10px] font-black uppercase tracking-widest text-green-500 italic">Market View</span>
-                <div class="flex items-center gap-2 text-[9px] text-slate-500 font-bold uppercase">
+                <div class="flex items-center gap-2 text-[9px] text-slate-500 font-bold">
                     <div class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
-                    <span>Sync Live</span>
+                    <span>SYNC LIVE</span>
                 </div>
             </div>
-            <div class="p-4 min-h-[200px]">
+            <div class="p-4">
                 <table class="w-full text-[11px] font-bold">
                     <tbody id="ticker-body">
                         </tbody>
@@ -79,16 +77,9 @@
             </div>
         </div>
 
-        <footer class="pt-10 flex flex-col items-center">
-            <img src="URL_DELLA_TUA_IMMAGINE_QUI" alt="Lopresti Production Logo" class="footer-logo">
+        <footer class="flex flex-col items-center">
+            <img src="logo.png" alt="Lopresti Production" class="footer-logo" onerror="this.src='https://via.placeholder.com/180x100/020617/fbbf24?text=LOPRESTI+PRODUCTION'">
         </footer>
     </div>
-    
-    <div class="page-fade w-full fixed bottom-0 left-0"></div>
-
-    <script>
-        /* La tua logica di aggiornamento prezzi rimane invariata */
-    </script>
 </body>
-        </html>
-        
+</html>
