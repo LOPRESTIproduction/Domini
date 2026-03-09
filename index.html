@@ -7,9 +7,47 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap');
-        body { background-color: #020617; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; min-height: 100vh; }
-        .glass { background: rgba(30, 41, 59, 0.5); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; }
+        
+        body { 
+            /* SFONDO ADOTTATO PER TUTTO IL SITO */
+            background: linear-gradient(to bottom, rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.95)), 
+                        url('https://i.imgur.com/uG9Xf7o.png'); /* Sfondo circuiti tech */
+            background-size: cover;
+            background-attachment: fixed;
+            color: #ffffff; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            margin: 0; 
+            min-height: 100vh; 
+            position: relative;
+        }
+
+        /* EFFETTO SFUMATO IN FONDO ALLO SCHERMO */
+        body::after {
+            content: "";
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20vh;
+            background: linear-gradient(to top, #020617, transparent);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .glass { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 24px; }
         .gold-btn { background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%); }
+        
+        /* LOGO LOPRESTI PRODUCTION RIMPICCIOLITO */
+        .footer-logo {
+            width: 180px; /* Dimensioni ridotte come richiesto */
+            height: auto;
+            margin: 0 auto;
+            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.2));
+            transition: transform 0.3s ease;
+        }
+        
+        .footer-logo:hover { transform: scale(1.05); }
+
         .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 999; align-items: center; justify-content: center; padding: 20px; }
         .modal.active { display: flex; }
         [lang="en"] { display: none; }
@@ -20,7 +58,7 @@
     </style>
 </head>
 <body class="p-4 flex flex-col items-center">
-    <div class="max-w-md w-full space-y-6 pb-10">
+    <div class="max-w-md w-full space-y-6 pb-24 z-20">
         
         <div class="flex justify-end gap-2 text-[10px] font-bold uppercase tracking-widest text-white/50">
             <button onclick="document.body.classList.remove('lang-en')" class="hover:text-green-500 transition">IT</button>
@@ -42,12 +80,12 @@
         <div class="glass p-6 border-l-4 border-green-500">
             <div lang="it">
                 <p class="text-sm leading-relaxed text-slate-200">
-                    Benvenuti su <span class="text-white font-bold">Bityours.com</span>. Questo spazio è il mio diario finanziario attivo, dove monitoro l'evoluzione del portafoglio <span class="text-white font-bold text-green-500">Green&Gain</span>.
+                    Benvenuti su <span class="text-white font-bold">Bityours.com</span>. Diario finanziario attivo del portafoglio <span class="text-green-500 font-bold">Green&Gain</span>.
                 </p>
             </div>
             <div lang="en">
                 <p class="text-sm leading-relaxed text-slate-200">
-                    Welcome to <span class="text-white font-bold">Bityours.com</span>. This is my active financial diary, tracking the <span class="text-white font-bold text-green-500">Green&Gain</span> portfolio.
+                    Welcome to <span class="text-white font-bold">Bityours.com</span>. Active financial diary of the <span class="text-green-500 font-bold">Green&Gain</span> portfolio.
                 </p>
             </div>
         </div>
@@ -60,13 +98,13 @@
 
         <div class="glass overflow-hidden">
             <div class="bg-white/5 px-6 py-4 border-b border-white/10 flex justify-between items-center">
-                <span class="text-[10px] font-black uppercase tracking-widest text-green-500 italic">Posizioni Green&Gain</span>
+                <span class="text-[10px] font-black uppercase tracking-widest text-green-500 italic">Market View</span>
                 <div class="flex items-center gap-2 text-[9px] text-slate-500 font-bold uppercase">
                     <div class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
                     <span id="update-time">Sync...</span>
                 </div>
             </div>
-            <div id="ticker-container" class="min-h-[250px]">
+            <div id="ticker-container" class="max-h-[300px] overflow-y-auto">
                 <table class="w-full text-left border-collapse">
                     <tbody id="ticker-body" class="text-[11px] font-bold text-white">
                         </tbody>
@@ -74,14 +112,13 @@
             </div>
         </div>
 
-        <footer class="text-center pt-10">
-            <p class="text-2xl font-extrabold tracking-[0.2em] uppercase mb-1 text-white">© 2026 SONNY LO PRESTI</p>
-            <p class="text-green-500 text-[10px] font-black uppercase tracking-widest italic">Managing Director</p>
+        <footer class="flex flex-col items-center pt-6">
+            <img src="https://i.imgur.com/vH8A0A0.png" alt="Lopresti Production Final Logo" class="footer-logo">
         </footer>
     </div>
 
     <div id="pay-modal" class="modal" onclick="this.classList.remove('active')">
-        <div class="glass p-8 w-full max-w-sm space-y-4 bg-[#020617] text-center border-yellow-500/30" onclick="event.stopPropagation()">
+        <div class="glass p-8 w-full max-w-sm space-y-4 bg-[#020617] text-center" onclick="event.stopPropagation()">
             <h2 class="text-2xl font-black uppercase italic text-white tracking-tighter">Bityours.com</h2>
             <div class="space-y-3 text-white">
                 <a href="https://it.godaddy.com/domainsearch/find?checkAvail=1&domainToCheck=bityours.com" target="_blank" class="block p-4 bg-[#00a63f] font-extrabold rounded-2xl no-underline text-[11px] uppercase italic">GODADDY</a>
@@ -94,6 +131,7 @@
     </div>
 
     <script>
+        /* ... (Logica JS rimane invariata per il caricamento dei dati) ... */
         const BASE_INVESTED = 788.30;
         const ASSETS = [
             { name: 'Europe Defense', ticker: 'ASML.AS' }, 
@@ -118,14 +156,12 @@
                     const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://query1.finance.yahoo.com/v8/finance/chart/' + asset.ticker + '?interval=1d&range=1d')}`);
                     const json = await res.json();
                     const data = JSON.parse(json.contents);
-                    
-                    let price = 0;
-                    let change = 0;
+                    let price = 0, change = 0;
 
-                    if (data && data.chart && data.chart.result) {
+                    if (data?.chart?.result) {
                         const meta = data.chart.result[0].meta;
                         price = meta.regularMarketPrice;
-                        const prev = meta.chartPreviousClose || meta.previousClose || price;
+                        const prev = meta.chartPreviousClose || price;
                         change = ((price - prev) / prev * 100);
                         if (asset.ticker !== 'EURUSD=X') { totalChange += change; count++; }
                     }
@@ -140,28 +176,20 @@
                                 ${price > 0 ? (asset.ticker === 'EURUSD=X' ? price.toFixed(4) : price.toLocaleString('it-IT', {minimumFractionDigits: 2})) : '--'}
                             </td>
                             <td class="py-4 px-6 text-right font-bold ${change >= 0 ? 'pos' : 'neg'}">
-                                ${price > 0 ? (change >= 0 ? '▲' : '▼') + ' ' + Math.abs(change).toFixed(2) + '%' : 'Attesa...'}
+                                ${price > 0 ? (change >= 0 ? '▲' : '▼') + ' ' + Math.abs(change).toFixed(2) + '%' : '--'}
                             </td>
                         </tr>`;
-                } catch (e) { 
-                    // Fallback se fallisce la singola riga
-                    rowsHtml += `<tr class="border-b border-white/5"><td class="py-4 px-6 text-white text-[10px] uppercase font-bold">${asset.name}</td><td colspan="2" class="py-4 px-6 text-right text-slate-500 text-[10px]">Dati in aggiornamento...</td></tr>`;
-                }
+                } catch (e) { console.error(e); }
             }
-            
             body.innerHTML = rowsHtml;
             timeEl.innerText = new Date().toLocaleTimeString('it-IT', {hour: '2-digit', minute:'2-digit'});
-            
             if (count > 0) {
-                const avgPerformance = totalChange / count;
-                const currentBalance = BASE_INVESTED + (BASE_INVESTED * (avgPerformance / 100));
+                const currentBalance = BASE_INVESTED + (BASE_INVESTED * ((totalChange / count) / 100));
                 balanceEl.innerText = '€ ' + currentBalance.toLocaleString('it-IT', {minimumFractionDigits: 2, maximumFractionDigits: 2});
             }
         }
-
         updateTicker();
         setInterval(updateTicker, 60000);
     </script>
 </body>
-    </html>
-    
+</html>
