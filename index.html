@@ -26,7 +26,7 @@
 
         .container { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 12px; }
 
-        /* PULSANTI ACCOUNT ARANCIONI */
+        /* GRIGLIA PULSANTI ACCOUNT */
         .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         
         .account-btn {
@@ -39,11 +39,12 @@
             font-weight: bold;
             font-size: 0.75rem;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-transform: uppercase;
         }
 
         .header { text-align: center; padding: 5px 0; }
         .header h1 { font-size: 2.2rem; margin: 0; letter-spacing: 1px; }
-        .header .subtitle { color: var(--accent-green); font-size: 0.8rem; font-weight: bold; }
+        .header .subtitle { color: var(--accent-green); font-size: 0.8rem; font-weight: bold; text-transform: uppercase; }
 
         .capital-card {
             border: 2px solid var(--accent-green);
@@ -54,7 +55,6 @@
         }
         .cap-amount { font-size: 3rem; font-weight: bold; margin: 5px 0; }
 
-        /* MARKET VIEW CON LOGO */
         .market-card {
             background-color: var(--card-bg);
             border-radius: 20px;
@@ -70,19 +70,21 @@
             padding: 11px 0;
             border-bottom: 1px solid #2d3748;
             position: relative;
-            z-index: 2; /* Sopra l'immagine */
+            z-index: 2;
         }
         .asset-name { font-size: 0.75rem; text-transform: uppercase; color: #e2e8f0; }
 
+        /* LOGO LOPRESTI - POSIZIONAMENTO E VISIBILITÀ */
         .footer-logo {
             position: absolute;
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             width: 85%;
-            opacity: 0.18; /* Trasparenza visibile */
+            opacity: 0.20; /* Leggermente più visibile */
             z-index: 1;
             pointer-events: none;
+            display: block;
         }
     </style>
 </head>
@@ -90,15 +92,15 @@
 
     <div class="container">
         <div class="btn-group">
-            <a href="https://revolut.me/lopresti7" target="_blank" class="account-btn">REVOLUT</a>
-            <a href="https://paypal.me/NicoCasacci" target="_blank" class="account-btn">PAYPAL</a>
-            <a href="https://www.godaddy.com" target="_blank" class="account-btn">GODADDY</a>
-            <a href="https://www.afternic.com" target="_blank" class="account-btn">AFTERNIC</a>
+            <a href="https://revolut.me/lopresti7" target="_blank" class="account-btn">Revolut</a>
+            <a href="https://paypal.me/NicoCasacci" target="_blank" class="account-btn">PayPal</a>
+            <a href="https://it.godaddy.com/domainsearch/find?domainToCheck=bityours.com" target="_blank" class="account-btn">Buy GoDaddy</a>
+            <a href="https://www.afternic.com/domain/bityours.com" target="_blank" class="account-btn">Buy Afternic</a>
         </div>
 
         <div class="header">
             <h1>BITYOURS.COM</h1>
-            <div class="subtitle">GREEN&GAIN PORTFOLIO</div>
+            <div class="subtitle">Green&Gain Portfolio</div>
         </div>
 
         <div class="capital-card">
@@ -121,7 +123,7 @@
             <div class="asset-row"><span>Europe Defense</span><b>€ 42,84</b></div>
             <div class="asset-row" style="border:none;"><span>Gold</span><b>€ 20,00</b></div>
 
-            <img src="1000028152.png" class="footer-logo" alt="Logo LOPRESTI">
+            <img src="1000028152.png" class="footer-logo" alt="LOPRESTI Production Logo">
         </div>
     </div>
 
