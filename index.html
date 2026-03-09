@@ -1,85 +1,163 @@
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bityours.com | Green&Gain Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Green&Gain Portfolio - LOPRESTI Production</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap');
-        
-        body { 
-            background-color: #020617;
-            /* APPLICA LO SFONDO A TUTTO IL SITO */
-            background-image: 
-                linear-gradient(to bottom, rgba(2, 6, 23, 0.85), rgba(2, 6, 23, 0.98)),
-                url('https://www.transparenttextures.com/patterns/carbon-fibre.png'); /* Texture tecnica di fallback */
-            background-attachment: fixed;
-            color: #ffffff; 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
+        :root {
+            --bg-color: #0a0e14;
+            --card-bg: #151c26;
+            --accent-green: #2ecc71;
+            --text-main: #ffffff;
+            --text-dim: #94a3b8;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
-        .glass { 
-            background: rgba(30, 41, 59, 0.5); 
-            backdrop-filter: blur(16px); 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            border-radius: 24px; 
-        }
-
-        /* LOGO FINALE LOPRESTI PRODUCTION RIMPICCIOLITO */
-        .footer-logo {
-            width: 180px; 
-            height: auto;
-            margin-top: 50px;
-            margin-bottom: 50px;
-            filter: drop-shadow(0 0 15px rgba(251, 191, 36, 0.3));
-        }
-
-        /* SFUMATURA FINALE DELLO SFONDO */
-        .footer-fade {
+        .container {
             width: 100%;
-            height: 150px;
-            background: linear-gradient(to top, #020617, transparent);
-            margin-top: -100px;
+            max-width: 400px;
+            position: relative;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+        }
+        .header span {
+            color: var(--accent-green);
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Card Capitale */
+        .card-main {
+            background: linear-gradient(145deg, #1a232e, #151c26);
+            border: 1px solid var(--accent-green);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .label { color: var(--text-dim); font-size: 0.75rem; text-transform: uppercase; }
+        .amount { font-size: 2.5rem; font-weight: bold; margin-top: 10px; }
+
+        /* Market View Section */
+        .market-view {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden; /* Importante per contenere il logo */
+            min-height: 300px;
+        }
+
+        .market-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .sync-status { color: var(--accent-green); font-size: 0.7rem; display: flex; align-items: center; }
+        .dot { height: 6px; width: 6px; background-color: var(--accent-green); border-radius: 50%; margin-right: 5px; }
+
+        /* Lista Titoli */
+        .asset-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #2d3748;
+            position: relative;
+            z-index: 2; /* Porta i titoli sopra il logo */
+        }
+        .asset-info div { font-weight: bold; }
+        .asset-info span { font-size: 0.75rem; color: var(--text-dim); }
+        .asset-val { text-align: right; font-weight: bold; }
+        .change { color: var(--accent-green); font-size: 0.75rem; }
+
+        /* LOGO IN TRASPARENZA (LOPRESTI Production) */
+        .background-logo {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            opacity: 0.15; /* Regola qui la trasparenza (0.1 = 10%, 1.0 = 100%) */
+            pointer-events: none; /* Impedisce al logo di interferire con i click */
+            z-index: 1;
         }
     </style>
 </head>
-<body class="p-4">
-    <div class="max-w-md w-full space-y-6 pb-10">
-        
-        <div class="text-center pt-6">
-            <h1 class="text-5xl font-extrabold italic uppercase tracking-tighter text-white">BITYOURS<span class="text-green-500">.COM</span></h1>
-            <p class="text-green-500 text-[10px] font-black tracking-[0.4em] uppercase">Green&Gain Portfolio</p>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>BITYOURS.COM</h1>
+            <span>GREEN&GAIN PORTFOLIO</span>
         </div>
 
-        <div class="glass p-8 text-center border-b-2 border-green-500">
-            <span class="text-[10px] text-slate-400 uppercase font-black tracking-widest">Capitale Investito (Live)</span>
-            <div id="live-balance" class="text-5xl font-extrabold mt-1 italic tracking-tighter text-white">€ 787,51</div>
+        <div class="card-main">
+            <div class="label">Capitale Investito (Live)</div>
+            <div class="amount">€ 788,30</div>
         </div>
 
-        <div class="glass overflow-hidden">
-            <div class="bg-white/5 px-6 py-4 border-b border-white/10 flex justify-between items-center">
-                <span class="text-[10px] font-black uppercase tracking-widest text-green-500 italic">Market View</span>
-                <div class="flex items-center gap-2 text-[9px] text-slate-500 font-bold">
-                    <div class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
-                    <span>SYNC LIVE</span>
+        <div class="market-view">
+            <div class="market-header">
+                <div class="label" style="color: var(--accent-green)">Market View</div>
+                <div class="sync-status"><span class="dot"></span> SYNC LIVE</div>
+            </div>
+
+            <div class="asset-row">
+                <div class="asset-info">
+                    <div>Growth (India/Tech)</div>
+                    <span>Target 55%</span>
+                </div>
+                <div class="asset-val">
+                    € 433,56
+                    <div class="change">+1.2%</div>
                 </div>
             </div>
-            <div class="p-4">
-                <table class="w-full text-[11px] font-bold">
-                    <tbody id="ticker-body">
-                        </tbody>
-                </table>
-            </div>
-        </div>
 
-        <footer class="flex flex-col items-center">
-            <img src="logo.png" alt="Lopresti Production" class="footer-logo" onerror="this.src='https://via.placeholder.com/180x100/020617/fbbf24?text=LOPRESTI+PRODUCTION'">
-        </footer>
+            <div class="asset-row">
+                <div class="asset-info">
+                    <div>Defense (Bonds)</div>
+                    <span>Target 30%</span>
+                </div>
+                <div class="asset-val">
+                    € 236,49
+                    <div class="change">+0.4%</div>
+                </div>
+            </div>
+
+            <div class="asset-row">
+                <div class="asset-info">
+                    <div>Dividend (High Div)</div>
+                    <span>Target 15%</span>
+                </div>
+                <div class="asset-val">
+                    € 118,25
+                    <div class="change">+0.8%</div>
+                </div>
+            </div>
+
+            <img src="URL_TUA_IMMAGINE_LOGO.png" alt="LOPRESTI Production" class="background-logo">
+        </div>
     </div>
+
 </body>
-</html>
+                    </html>
