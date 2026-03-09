@@ -12,8 +12,7 @@
             --accent-orange: #f39c12;
             --text-white: #ffffff;
             --text-dim: #94a3b8;
-            --revolut-blue: #0075eb;
-            --godaddy-green: #00838c;
+            --border-color: #2d3748;
         }
 
         body {
@@ -28,23 +27,24 @@
 
         .container { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 15px; }
 
-        /* Banner Acquisto Top */
-        .buy-banner {
+        /* PULSANTE ARANCIONE - ACCESSO ACCOUNT */
+        .account-link {
             background: linear-gradient(135deg, #e67e22, #f39c12);
             border-radius: 12px;
-            padding: 14px;
+            padding: 16px;
             text-align: center;
             text-decoration: none;
             color: white;
             font-weight: bold;
             box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
+            display: block;
         }
-        .buy-banner span { display: block; font-size: 0.65rem; text-transform: uppercase; margin-bottom: 2px; }
+        .account-link span { display: block; font-size: 0.65rem; text-transform: uppercase; margin-bottom: 2px; opacity: 0.9; }
 
         /* Header */
         .header { text-align: center; padding: 10px 0; }
         .header h1 { font-size: 2.4rem; margin: 0; letter-spacing: 1px; }
-        .header .subtitle { color: var(--accent-green); font-size: 0.8rem; font-weight: bold; letter-spacing: 2px; }
+        .header .subtitle { color: var(--accent-green); font-size: 0.8rem; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; }
 
         /* Card Capitale */
         .capital-card {
@@ -56,7 +56,7 @@
         }
         .cap-amount { font-size: 3.2rem; font-weight: bold; margin: 5px 0; }
 
-        /* Market View - Asset Reali */
+        /* Market View */
         .market-card {
             background-color: var(--card-bg);
             border-radius: 20px;
@@ -64,47 +64,41 @@
             position: relative;
             display: flex;
             flex-direction: column;
+            min-height: 520px; /* Spazio per tutti i titoli + logo */
         }
 
-        .market-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #2d3748; padding-bottom: 10px; }
-        .market-title { color: var(--accent-green); font-size: 0.85rem; font-weight: bold; }
+        .market-header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 15px; 
+            border-bottom: 1px solid var(--border-color); 
+            padding-bottom: 10px; 
+        }
+        .market-title { color: var(--accent-green); font-size: 0.85rem; font-weight: bold; text-transform: uppercase; }
 
+        /* Righe Asset */
         .asset-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 12px 0;
-            border-bottom: 1px solid #2d3748;
-            z-index: 2;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            z-index: 2; /* Sopra l'immagine */
         }
-        .asset-name { font-weight: 500; font-size: 0.85rem; color: #e2e8f0; max-width: 70%; }
+        .asset-name { font-weight: 500; font-size: 0.8rem; color: #e2e8f0; text-transform: uppercase; max-width: 65%; }
         .asset-val { text-align: right; font-weight: bold; font-size: 0.9rem; }
         .asset-chg { color: var(--accent-green); font-size: 0.7rem; display: block; }
 
-        /* Wallet Buttons */
-        .wallet-section { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
-        .btn {
-            border-radius: 12px;
-            padding: 15px;
-            text-align: center;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-        }
-        .btn-godaddy { background-color: var(--godaddy-green); }
-        .btn-paypal { background-color: #003087; }
-        .btn-revolut { background-color: var(--revolut-blue); }
-
-        /* Logo Watermark */
+        /* LOGO IN FONDO (Lievemente trasparente) */
         .footer-logo {
             position: absolute;
-            bottom: 60px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80%;
-            opacity: 0.12;
+            width: 75%;
+            opacity: 0.15; /* Trasparenza lieve (15% visibile) */
             pointer-events: none;
             z-index: 1;
         }
@@ -113,45 +107,28 @@
 <body>
 
     <div class="container">
-        <a href="https://bityours.com" class="buy-banner">
-            <span>OPZIONI DI ACQUISTO</span>
-            BUY BITYOURS.COM
+        <a href="#link-ai-tuoi-account" class="account-link">
+            <span>Gestione Portafoglio</span>
+            ACCEDI AI MIEI ACCOUNT
         </a>
 
         <div class="header">
             <h1>BITYOURS.COM</h1>
-            <div class="subtitle">GREEN&GAIN PORTFOLIO</div>
+            <div class="subtitle">Green&Gain Portfolio</div>
         </div>
 
         <div class="capital-card">
-            <div style="color: var(--text-dim); font-size: 0.7rem; text-transform: uppercase;">Capitale Investito (Live)</div>
+            <div style="color: var(--text-dim); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px;">Capitale Investito (Live)</div>
             <div class="cap-amount">€ 787,51</div>
         </div>
 
         <div class="market-card">
             <div class="market-header">
-                <div class="market-title">POSIZIONI GREEN&GAIN</div>
-                <div style="color: var(--accent-green); font-size: 0.7rem;">● 00:08 SYNC</div>
+                <div class="market-title">Posizioni Green&Gain</div>
+                <div style="color: var(--accent-green); font-size: 0.7rem;">● SYNC LIVE</div>
             </div>
 
-            <div class="asset-row"><span class="asset-name">MSCI EM SRI USD ACC</span><div class="asset-val">€ 145,20 <span class="asset-chg">+0.45%</span></div></div>
-            <div class="asset-row"><span class="asset-name">STOXX GLOBAL DIVIDEND 100 DIST</span><div class="asset-val">€ 98,40 <span class="asset-chg">+0.12%</span></div></div>
-            <div class="asset-row"><span class="asset-name">EURO OVERNIGHT RATE SWAP ACC</span><div class="asset-val">€ 210,15 <span class="asset-chg">+0.01%</span></div></div>
-            <div class="asset-row"><span class="asset-name">PICTET GLOBAL TRENDS ESG</span><div class="asset-val">€ 85,30 <span class="asset-chg">+0.88%</span></div></div>
-            <div class="asset-row"><span class="asset-name">EUROFUNDLUX BOND INCOME</span><div class="asset-val">€ 120,40 <span class="asset-chg">-0.10%</span></div></div>
-            <div class="asset-row"><span class="asset-name">NASDAQ JPM QUALITY INCOME</span><div class="asset-val">€ 65,22 <span class="asset-chg">+1.15%</span></div></div>
-            <div class="asset-row"><span class="asset-name">EUROPE DEFENSE</span><div class="asset-val">€ 42,84 <span class="asset-chg">+2.30%</span></div></div>
-            <div class="asset-row" style="border-bottom: none;"><span class="asset-name">GOLD</span><div class="asset-val">€ 20,00 <span class="asset-chg">+0.55%</span></div></div>
-
-            <img src="1000028152.png" class="footer-logo" alt="LOPRESTI Production">
-        </div>
-
-        <div class="wallet-section">
-            <a href="https://godaddy.com" class="btn btn-godaddy">GoDaddy</a>
-            <a href="https://paypal.com" class="btn btn-paypal">PayPal</a>
-            <a href="https://revolut.me/sonnylo" class="btn btn-revolut">Revolut</a>
-        </div>
-    </div>
-
-</body>
-</html>
+            <div class="asset-row"><span class="asset-name">Msci EM SRI USD Acc</span><div class="asset-val">€ 145,20 <span class="asset-chg">+0.45%</span></div></div>
+            <div class="asset-row"><span class="asset-name">Stoxx Global Dividend 100 Dist</span><div class="asset-val">€ 98,40 <span class="asset-chg">+0.12%</span></div></div>
+            <div class="asset-row"><span class="asset-name">Euro Overnight Rate Swap Acc</span>
+            
