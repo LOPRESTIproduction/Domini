@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BITYOURS.COM - Personal Portfolio</title>
+    <title>BITYOURS.COM - Dashboard</title>
     <style>
         :root {
             --bg-main: #0b0f15;
@@ -12,135 +12,118 @@
             --accent-orange: #f39c12;
             --text-white: #ffffff;
             --text-dim: #94a3b8;
-            --border-color: #2d3748;
         }
 
         body {
             background-color: var(--bg-main);
             color: var(--text-white);
-            font-family: 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
             margin: 0;
             padding: 15px;
             display: flex;
             justify-content: center;
         }
 
-        .container { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 15px; }
+        .container { width: 100%; max-width: 420px; display: flex; flex-direction: column; gap: 12px; }
 
-        /* PULSANTE ARANCIONE - ACCESSO ACCOUNT */
-        .account-link {
+        /* PULSANTI ACCOUNT ARANCIONI */
+        .btn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        
+        .account-btn {
             background: linear-gradient(135deg, #e67e22, #f39c12);
             border-radius: 12px;
-            padding: 16px;
+            padding: 12px;
             text-align: center;
             text-decoration: none;
             color: white;
             font-weight: bold;
-            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
-            display: block;
+            font-size: 0.75rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
-        .account-link span { display: block; font-size: 0.65rem; text-transform: uppercase; margin-bottom: 2px; opacity: 0.9; }
 
-        /* Header */
-        .header { text-align: center; padding: 10px 0; }
-        .header h1 { font-size: 2.4rem; margin: 0; letter-spacing: 1px; }
-        .header .subtitle { color: var(--accent-green); font-size: 0.8rem; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; }
+        .header { text-align: center; padding: 5px 0; }
+        .header h1 { font-size: 2.2rem; margin: 0; letter-spacing: 1px; }
+        .header .subtitle { color: var(--accent-green); font-size: 0.8rem; font-weight: bold; }
 
-        /* Card Capitale */
         .capital-card {
             border: 2px solid var(--accent-green);
             border-radius: 20px;
-            padding: 25px;
+            padding: 20px;
             text-align: center;
             background: rgba(21, 28, 38, 0.6);
         }
-        .cap-amount { font-size: 3.2rem; font-weight: bold; margin: 5px 0; }
+        .cap-amount { font-size: 3rem; font-weight: bold; margin: 5px 0; }
 
-        /* Market View */
+        /* MARKET VIEW CON LOGO */
         .market-card {
             background-color: var(--card-bg);
             border-radius: 20px;
             padding: 20px;
             position: relative;
-            display: flex;
-            flex-direction: column;
-            min-height: 520px; /* Spazio per tutti i titoli + logo */
+            min-height: 480px;
+            overflow: hidden;
         }
 
-        .market-header { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            margin-bottom: 15px; 
-            border-bottom: 1px solid var(--border-color); 
-            padding-bottom: 10px; 
-        }
-        .market-title { color: var(--accent-green); font-size: 0.85rem; font-weight: bold; text-transform: uppercase; }
-
-        /* Righe Asset */
         .asset-row {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border-color);
+            padding: 11px 0;
+            border-bottom: 1px solid #2d3748;
             position: relative;
             z-index: 2; /* Sopra l'immagine */
         }
-        .asset-name { font-weight: 500; font-size: 0.8rem; color: #e2e8f0; text-transform: uppercase; max-width: 65%; }
-        .asset-val { text-align: right; font-weight: bold; font-size: 0.9rem; }
-        .asset-chg { color: var(--accent-green); font-size: 0.7rem; display: block; }
+        .asset-name { font-size: 0.75rem; text-transform: uppercase; color: #e2e8f0; }
 
-        /* LOGO IN FONDO (Lievemente trasparente) */
         .footer-logo {
             position: absolute;
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 75%;
-            opacity: 0.15; /* Trasparenza lieve (15% visibile) */
-            pointer-events: none;
+            width: 85%;
+            opacity: 0.18; /* Trasparenza visibile */
             z-index: 1;
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <a href="#link-ai-tuoi-account" class="account-link">
-            <span>Gestione Portafoglio</span>
-            ACCEDI AI MIEI ACCOUNT
-        </a>
+        <div class="btn-group">
+            <a href="https://revolut.me/lopresti7" target="_blank" class="account-btn">REVOLUT</a>
+            <a href="https://paypal.me/NicoCasacci" target="_blank" class="account-btn">PAYPAL</a>
+            <a href="https://www.godaddy.com" target="_blank" class="account-btn">GODADDY</a>
+            <a href="https://www.afternic.com" target="_blank" class="account-btn">AFTERNIC</a>
+        </div>
 
         <div class="header">
             <h1>BITYOURS.COM</h1>
-            <div class="subtitle">Green&Gain Portfolio</div>
+            <div class="subtitle">GREEN&GAIN PORTFOLIO</div>
         </div>
 
         <div class="capital-card">
-            <div style="color: var(--text-dim); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px;">Capitale Investito (Live)</div>
+            <div style="color: var(--text-dim); font-size: 0.65rem; text-transform: uppercase;">Capitale Investito (Live)</div>
             <div class="cap-amount">€ 787,51</div>
         </div>
 
         <div class="market-card">
-            <div class="market-header">
-                <div class="market-title">Posizioni Green&Gain</div>
-                <div style="color: var(--accent-green); font-size: 0.7rem;">● SYNC LIVE</div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+                <b style="color: var(--accent-green); font-size: 0.8rem;">MARKET VIEW</b>
+                <span style="color: var(--accent-green); font-size: 0.7rem;">● SYNC LIVE</span>
             </div>
 
-            <div class="asset-row"><span class="asset-name">Msci EM SRI USD Acc</span><div class="asset-val">€ 145,20 <span class="asset-chg">+0.45%</span></div></div>
-            <div class="asset-row"><span class="asset-name">Stoxx Global Dividend 100 Dist</span><div class="asset-val">€ 98,40 <span class="asset-chg">+0.12%</span></div></div>
-            <div class="asset-row"><span class="asset-name">Euro Overnight Rate Swap Acc</span><div class="asset-val">€ 210,15 <span class="asset-chg">+0.01%</span></div></div>
-            <div class="asset-row"><span class="asset-name">Pictet Global Trends ESG</span><div class="asset-val">€ 85,30 <span class="asset-chg">+0.88%</span></div></div>
-            <div class="asset-row"><span class="asset-name">Eurofundlux Bond Income</span><div class="asset-val">€ 120,40 <span class="asset-chg">-0.10%</span></div></div>
-            <div class="asset-row"><span class="asset-name">Nasdaq JPM Quality Income</span><div class="asset-val">€ 65,22 <span class="asset-chg">+1.15%</span></div></div>
-            <div class="asset-row"><span class="asset-name">Europe Defense</span><div class="asset-val">€ 42,84 <span class="asset-chg">+2.30%</span></div></div>
-            <div class="asset-row" style="border-bottom: none;"><span class="asset-name">Gold</span><div class="asset-val">€ 20,00 <span class="asset-chg">+0.55%</span></div></div>
+            <div class="asset-row"><span>Msci EM SRI USD Acc</span><b>€ 145,20</b></div>
+            <div class="asset-row"><span>Stoxx Global Dividend 100 Dist</span><b>€ 98,40</b></div>
+            <div class="asset-row"><span>Euro Overnight Rate Swap Acc</span><b>€ 210,15</b></div>
+            <div class="asset-row"><span>Pictet Global Trends ESG</span><b>€ 85,30</b></div>
+            <div class="asset-row"><span>Eurofundlux Bond Income</span><b>€ 120,40</b></div>
+            <div class="asset-row"><span>Nasdaq JPM Quality Income</span><b>€ 65,22</b></div>
+            <div class="asset-row"><span>Europe Defense</span><b>€ 42,84</b></div>
+            <div class="asset-row" style="border:none;"><span>Gold</span><b>€ 20,00</b></div>
 
-            <img src="1000028152.png" class="footer-logo" alt="LOPRESTI Production">
+            <img src="1000028152.png" class="footer-logo" alt="Logo LOPRESTI">
         </div>
     </div>
 
 </body>
-    </html>
-    
+</html>
